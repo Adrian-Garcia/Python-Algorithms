@@ -9,8 +9,7 @@ def DeclaracionVariables():
 	apellido = "Martinez"
 	estatura = 1.55
 
-	print("La niña más bonita es {} {}. Tiene {} años y mide 
-{}m".format(nombre, apellido, edad, estatura))
+	print("La niña más bonita es {} {}. Tiene {} años y mide {}m".format(nombre, apellido, edad, estatura))
 
 # Condicionales
 def Condicionales():
