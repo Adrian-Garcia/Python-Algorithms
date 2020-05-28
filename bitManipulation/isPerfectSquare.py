@@ -22,4 +22,4 @@ class Solution(object):
 		return True if num**0.5 - int(num**0.5) == 0 else False
 
 sol = Solution()
-print(sol.isPerfectSquare(14))		
+print(sol.isPerfectSquare(14))
