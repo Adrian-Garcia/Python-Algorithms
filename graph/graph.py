@@ -1,11 +1,11 @@
 import queue
 
+# Graph node
 class GraphNode(object):
 
 	def __init__ (self, val):
 		self.val = val
 		self.adjacent = {}
-		self.visited = False
 
 	def printNode(self):
 		print(self.val)
@@ -19,17 +19,25 @@ class Graph():
 	def breadthFirst(self):
 		
 		nodes = queue.LifoQueue(len(self.nodeList))
-
 		nodes.put(self.start)
+
+		visited = {"None"}
 
 		while (not nodes.empty()):
 
 			curr = nodes.get()
-			curr.visited = True
+			
+			if curr.val in visited:
+				continue
+			else:
+				visited.add(curr)
+
 			print(curr.val)
 
 			for i in curr.adjacent:
-				if not curr.adjacent[i].visited:
+				if i in visited:
+					continue
+				else:
 					nodes.put(curr.adjacent[i])
 
 node1 = GraphNode("Nuevo Leon")
