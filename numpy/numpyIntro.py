@@ -67,8 +67,53 @@ class numpyTest(object):
 		print("arr3 = {}".format(arr3))
 		print("arr3[0,1,2] = {}".format(arr3[0,1,2]))
 
-	def arraySlicing():
+	def arraySlicing(self):
+	
+		# 1-D Array
+		arr = np.array([1, 2, 3, 4, 5, 6, 7])
+		print("Array = {}".format(arr))
+		print("Values of arr from index 1 to 5 = {}".format(arr[1:5]))
+		print("Values of arr from index 4 (included 4)to end = {}".format(arr[4:]))
+		print("Values of arr from start of indec to 4 (not included 4) = {}".format(arr[:4]))
+		print("Values of arr from the end to index 1 from the end = {}".format(arr[-3:-1]))
+		print("Values of arr from index 1 to index 5 (2 by 2) = {}".format(arr[1:5:2]))
+		print("Values of arr from idnex 0 to 1 (2 by 2) = {}".format(arr[::2]))
+
+		#2-D Array
+		arr2 = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+		print("\nArray = {}".format(arr2))
+		print("Values of arr2, second row from index 1 to 4  = {}".format(arr2[1,1:4]))
+		print("Values of arr2, first and second row, index 2  = {}".format(arr2[0:2,2]))
+		print("Values of arr2, first and second row, index 1 to 4  = {}".format(arr2[0:2, 1:4]))
+
+	def copyVsView(self):
+
+		arr = np.array([1, 2, 3, 4, 5])
+		x = arr.copy()
+		y = arr.view()
+
+		print("arr = [1, 2, 3, 4, 5]")
+		print("x = arr.copy() = {}".format(x))
+		print("y = arr.view() = {}".format(y))
+		print()
+
+		x[0] = 0
+
+		print("x[0] = 0")
+		print("arr = {}".format(arr))
+		print("x = {}".format(x))
+		print("y = {}".format(y))
+		print()
+
+		y[0] = 0
+
+		print("y[0] = 0")
+		print("arr = {}".format(arr))
+		print("x = {}".format(x))
+		print("y = {}".format(y))
+
+	def iterating(self):
 		pass
 
 program = numpyTest()
-program.arraySlicing()
+program.iterating()
