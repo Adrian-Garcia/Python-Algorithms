@@ -113,7 +113,14 @@ class numpyTest(object):
 		print("y = {}".format(y))
 
 	def iterating(self):
-		pass
+		
+		arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+
+		for x in arr:
+			for y in x:
+				for z in y:
+					print(z, end='\t')
+				print()
 
 program = numpyTest()
 program.iterating()
