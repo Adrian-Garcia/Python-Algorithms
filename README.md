@@ -1,3 +1,2 @@
 # Python-Algorithms
-Personal algorithms developed in C++
-
+Personal algorithms developed in Python
