@@ -16,16 +16,63 @@ Example:
 
 class Solution(object):
 
+	def checkEdges(self, arr, position):
+
+		if position != len(arr)-1 and position != 0:
+			if arr[position] == arr[position+1] or arr[position] == arr[position-1]:
+				return True
+
+		elif position == 0:
+			if arr[position] == arr[position+1]:
+			 	return True
+		
+		else:
+			if arr[position] == arr[position-1]:
+			 	return True
+
+		return False
+
+	def binarySearch(self, arr, target):
+
+		low = 0
+		top = len(arr) - 1
+
+		while low <= top:
+
+			mid = (top + low) // 2
+
+			if arr[mid] < target:
+				low = mid + 1
+
+			elif arr[mid] > target:
+				top = mid - 1
+
+			else:
+				return mid
+
+		return -1
+
 	def twoSum(self, nums, target):
 
-		dictionary = {}
+		myNewArr = nums.copy()
+		myNewArr.sort()
 
 		for i in range(len(nums)):
+			targetNum = target - nums[i]
 
-			if (target - nums[i] in dictionary):
-				return [dictionary[target - nums[i]], i]
+			result = self.binarySearch(myNewArr, targetNum)
 
-			dictionary[nums[i]] = i		
+			if (result != -1):
+
+				if targetNum == target/2:
+
+					if self.checkEdges(nums, result):
+						return [i, result]
+
+				return [i, result]
+
+		return [-1,-1]
+
 
 sol = Solution()
 print(sol.twoSum([1,2,3], 5))
