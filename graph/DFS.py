@@ -13,7 +13,7 @@ class Graph:
 		else:
 			self.graph[u] = [v]
 
-	def BFS(self, s):
+	def DFS(self, s):
 
 		visited = [False] * (len(self.graph))
 		queue = []
@@ -23,7 +23,7 @@ class Graph:
 
 		while queue:
 
-			s = queue.pop(0)
+			s = queue.pop()
 			print (s, end = " ")
 
 			for i in self.graph[s]:
@@ -39,8 +39,8 @@ g.addEdge(2, 0)
 g.addEdge(2, 3) 
 g.addEdge(3, 3) 
 
-print ("BFS: ", end='')
-g.BFS(2)
+print ("DFS: ", end='')
+g.DFS(2)
 print()
 
 # This code is contributed by Neelam Yadav 
