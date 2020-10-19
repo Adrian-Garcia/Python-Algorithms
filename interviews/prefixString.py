@@ -54,7 +54,7 @@ def prefixString(a, b):
 		myStr = str
 
 		for subStr in a:
-			deletedStr = myStr.replace(subStr, '')
+			deletedStr = myStr.replace(subStr, '', 1)
 
 			if deletedStr == myStr:
 				return False
@@ -66,7 +66,7 @@ def prefixString(a, b):
 
 	return True
 
-a = ["one", "two", "three"]
-b = ["onetwo", "one"]
+a = ["A", "A", "A", "A"]
+b = ["AAA"]
 
 print(prefixString(a, b))
