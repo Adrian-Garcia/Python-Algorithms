@@ -1,7 +1,6 @@
 ''' 
 	Recovered from
-	https://stackabuse.com/association-rule-mining-via-apriori-algorithm-in-python/
-'''
+  http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/'''
 
 import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
