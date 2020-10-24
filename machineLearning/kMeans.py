@@ -1,3 +1,4 @@
+# https://www.kdnuggets.com/2018/09/iterative-initial-centroid-search-sampling-k-means-clustering.html
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing
