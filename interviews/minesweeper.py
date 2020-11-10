@@ -74,62 +74,58 @@ class Space():
     def __init__(self, mine):
         self.mine = mine
         self.discovered = False
-    
+
     def printSpaceSecret(self):
-        if (self.discovered):
-            if(self.mine):
+        if self.discovered:
+            if self.mine:
                 print(" m ", end = '')
             else:
                 print(" e ", end='')
 
         else:
             print(" # ", end='')
-    
+
     def printSpace(self):
-        if(self.mine):
+        if self.mine:
             print(" m ", end = '')
         else:
             print(" e ", end='')
-        
 
+# This function was not ussed on the interview
+def shouldHaveMine(noMines, currentNumberOfMines):
+    if currentNumberOfMines == noMines:
+        return False
 
-# def shouldHaveMine(noMines, currentNumberOfMines):
-#     if currentNumberOfMines == noMines:
-#         return False
-    
-#     currentNumberOfMines += 1
-#     num = randint(0, 1)
-    
-#     return num == 1
+    currentNumberOfMines += 1
+    num = randint(0, 1)
+
+    return num == 1
 
 def fixNumberOfMines(columns, rows, noMines, board):
 
     currentNumberOfMines = 0
 
-    while (currentNumberOfMines < noMines):
+    while currentNumberOfMines < noMines:
 
-        x = randint(0, columns - 1)
-        y = randint(0, rows - 1)
+        x = randint(0, rows - 1)
+        y = randint(0, columns - 1)
 
-        if (board[x][y].mine == False):
+        if not board[x][y].mine:
             board[x][y].mine = True
             currentNumberOfMines += 1
 
-    return board
-
-#                  3       3      3
 def minesweeper(columns, rows, noMines):
-    
-    if (columns < 0 or rows < 0 or noMines < 0):
+
+    if columns < 0 or rows < 0 or noMines < 0:
         print("Columns, rows or number of mines can not be less than 0")
         return
-    
-    if (noMines > columns * rows):
+
+    if noMines > columns * rows:
         print("The number of mines is bigger that expected")
         return
-    
-    board = [[Space(False) for x in range(rows)] for i in range(columns)]
-    board = fixNumberOfMines(columns, rows, noMines, board)
+
+    board = [[Space(False) for x in range(columns)] for i in range(rows)]
+    fixNumberOfMines(columns, rows, noMines, board)
 
     for row in board:
         for space in row:
@@ -137,13 +133,8 @@ def minesweeper(columns, rows, noMines):
         print("")
     print("")
 
-    # while(not exploted):
-    #     print("Set your x position: ") # 2
-    #     print("Set your y position: ") # 1
-    
-
-minesweeper(3, 3, 3)
-minesweeper(3, -3, 3)
-minesweeper(3, 3, 10)
-minesweeper(3, 4, 3)
-minesweeper(3, 4, -9)
+# minesweeper(3, 3, 3)
+# minesweeper(3, -3, 3)
+# minesweeper(3, 3, 10)
+# minesweeper(3, 4, 3)
+# minesweeper(3, 4, -9)

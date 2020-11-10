@@ -140,18 +140,18 @@ def Matrices():
 	filas = int(input("Inserta el tamaño de filas: "))
 	columnas = int(input("Inserta el tamaño de columnas: "))
 
-	matrix = [[0 for x in range(filas)] for i in range(columnas)]
+	matrix = [[0 for x in range(columnas)] for i in range(filas)]
 	print("Matriz[{}][{}]\n".format(len(matrix), len(matrix[0])))
 
 	for i in range(len(matrix)):
 		for j in range(len(matrix[0])):
 			matrix[i][j] = input()
-	print()
 
 	for i in range(len(matrix)):
 		for j in range(len(matrix[i])):
-			print("{} ".format(matrix[i][j]), end='')
+			print(matrix[i][j], " " , end='')
 		print()
+	print()
 
 #DeclaracionVariables()
 #Condicionales()
