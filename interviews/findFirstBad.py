@@ -1,4 +1,4 @@
-'''
+"""
 Description
 Given an (expensive) API "bool isBadRevision(int revision)" write a functions that returns first bad revision in the range
 
@@ -16,9 +16,12 @@ API :   isBadRevision (int) -> true if bad, false if good (expensive)
 
 Write
 int findFirstBad (int firstGood, int lastBad)
-'''
+"""
+
+
 def isBadRevision(revision):
     return revision < 3
+
 
 def findFirstBad(firstGood, lastBad):
     start = firstGood
@@ -26,17 +29,18 @@ def findFirstBad(firstGood, lastBad):
 
     lastBad = start
 
-    while (last > start):
+    while last > start:
 
         middle = int((start + last) / 2)
 
-        if (isBadRevision(middle)):
+        if isBadRevision(middle):
             last = middle
             lastBad = middle
-        
+
         else:
             start = middle
 
     return lastBad
 
-print(findFirstBad(1,5))
+
+print(findFirstBad(1, 5))

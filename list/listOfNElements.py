@@ -1,5 +1,5 @@
-listOfFives = [5]*5
+listOfFives = [5] * 5
 print("listOfFives: ", listOfFives)
 
-listOflistOfFices = [listOfFives]*5
+listOflistOfFices = [listOfFives] * 5
 print("listOflistOfFices: ", listOflistOfFices)

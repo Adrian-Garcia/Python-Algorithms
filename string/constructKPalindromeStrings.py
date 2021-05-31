@@ -1,4 +1,4 @@
-'''
+"""
 1400. Construct K Palindrome Strings
 	Given a string s and an integer k. You should construct k non-empty palindrome strings using all the characters in s.
 	Return True if you can use all the characters in s to construct k palindrome strings or False otherwise.
@@ -33,44 +33,45 @@ Constraints:
 	1 <= s.length <= 10^5
 	All characters in s are lower-case English letters.
 	1 <= k <= 10^5
-'''
+"""
+
 
 class Solution(object):
+    def __splitStr(self, s):
 
-	def __splitStr(self, s):
-		
-		deconstructedStr = {}
+        deconstructedStr = {}
 
-		for char in s:
-			if char in deconstructedStr:
-				deconstructedStr[char] = deconstructedStr[char] + 1
+        for char in s:
+            if char in deconstructedStr:
+                deconstructedStr[char] = deconstructedStr[char] + 1
 
-			else:
-				deconstructedStr[char] = 1
+            else:
+                deconstructedStr[char] = 1
 
-		return deconstructedStr
+        return deconstructedStr
 
-	def __getNumOfInpairs(self, deconstructedStr):
+    def __getNumOfInpairs(self, deconstructedStr):
 
-		numberOfInpairs = 0
+        numberOfInpairs = 0
 
-		for char in deconstructedStr:
-			if deconstructedStr[char] % 2:
-				numberOfInpairs += 1
+        for char in deconstructedStr:
+            if deconstructedStr[char] % 2:
+                numberOfInpairs += 1
 
-		if numberOfInpairs == 0:
-			numberOfInpairs = 1
+        if numberOfInpairs == 0:
+            numberOfInpairs = 1
 
-		return numberOfInpairs
+        return numberOfInpairs
 
-	def canConstruct(self, s, k):
+    def canConstruct(self, s, k):
 
-		deconstructedStr = self.__splitStr(s)
+        deconstructedStr = self.__splitStr(s)
 
-		minPalindrome = self.__getNumOfInpairs(deconstructedStr)
-		maxPalindrome = len(s)
+        minPalindrome = self.__getNumOfInpairs(deconstructedStr)
+        maxPalindrome = len(s)
 
-		return (k >= minPalindrome and k <= maxPalindrome)
+        return k >= minPalindrome and k <= maxPalindrome
+
 
 sol = Solution()
 

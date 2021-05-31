@@ -1,4 +1,4 @@
-'''
+"""
 Univalued Binary Tree
 	A binary tree is univalued if every node in the tree has the same value.
 	Return true if and only if the given tree is univalued.
@@ -14,36 +14,36 @@ Example 2:
 Note:
 	The number of nodes in the given tree will be in the range [1, 100].
 	Each node's value will be an integer in the range [0, 99].
-'''
+"""
+
 
 class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-	def __init__(self, val=0, left=None, right=None):
-		self.val = val
-		self.left = left
-		self.right = right
 
 class Solution(object):
-	
-	def checkInOrder(self, r, val):
+    def checkInOrder(self, r, val):
 
-		thisRes = True
-		leftRes = True
-		rightRes = True
+        thisRes = True
+        leftRes = True
+        rightRes = True
 
-		if (r != None):
-			
-			leftRes = self.checkInOrder(r.left, val)
+        if r != None:
 
-			if (r.val != val):
-				thisRes = False
+            leftRes = self.checkInOrder(r.left, val)
 
-			rightRes = self.checkInOrder(r.right, val)
+            if r.val != val:
+                thisRes = False
 
-		return thisRes and leftRes and rightRes	
+            rightRes = self.checkInOrder(r.right, val)
 
-	def isUnivalTree(self, root):
-		return self.checkInOrder(root, root.val)
+        return thisRes and leftRes and rightRes
+
+    def isUnivalTree(self, root):
+        return self.checkInOrder(root, root.val)
 
 
 sol = Solution()

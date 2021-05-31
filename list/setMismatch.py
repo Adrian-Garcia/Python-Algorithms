@@ -1,6 +1,6 @@
 # Pending
 
-'''
+"""
 Set Mismatch
 	The set S originally contains numbers from 1 to n. But unfortunately, due to the data 
 	error, one of the numbers in the set got duplicated to another number in the set, which
@@ -17,29 +17,30 @@ Example 1:
 Note:
 	The given array size will in the range [2, 10000].
 	The given array's numbers won't have any order
-'''
+"""
+
 
 class Solution(object):
-	
-	def findErrorNums(self, nums):
+    def findErrorNums(self, nums):
 
-		prevNum = 0
-		nextNum = 2
+        prevNum = 0
+        nextNum = 2
 
-		for i in range(len(nums)):
+        for i in range(len(nums)):
 
-			currNum = i+1
+            currNum = i + 1
 
-			if nums[i] != currNum:
-				
-				if nums[i] == nextNum:
-					return [currNum, nextNum]
+            if nums[i] != currNum:
 
-				else:
-					return [prevNum, currNum]
+                if nums[i] == nextNum:
+                    return [currNum, nextNum]
 
-			prevNum+=1
-			nextNum+=1
+                else:
+                    return [prevNum, currNum]
+
+            prevNum += 1
+            nextNum += 1
+
 
 sol = Solution()
-print(sol.findErrorNums([1,1]))
+print(sol.findErrorNums([1, 1]))

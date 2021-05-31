@@ -1,4 +1,4 @@
-'''
+"""
 You are given a positive integer represented as a string number. Your task is to count the number of its substrings that form an integer divisible by 3. The substring must not have any leading zeros unless it's a single-character substring "0".
 
 Example
@@ -44,32 +44,43 @@ Guaranteed constraints:
 [output] integer
 
 Return the number of substrings that form an integer divisible by 3.
-'''
+"""
+
+
 def numIsDivisibleByThree(numInt):
-	return not bool(numInt % 3)
+    return not bool(numInt % 3)
+
 
 def deleteDuplicates(intNumbers):
-	return list(dict.fromkeys(intNumbers))
+    return list(dict.fromkeys(intNumbers))
+
 
 def convertToInt(strNumbers):
-	intNumbers = []
+    intNumbers = []
 
-	for strNum in range(0, len(strNumbers)): 
-		intNumbers.append(int(strNumbers[strNum]))
+    for strNum in range(0, len(strNumbers)):
+        intNumbers.append(int(strNumbers[strNum]))
 
-	return deleteDuplicates(intNumbers)
+    return deleteDuplicates(intNumbers)
+
 
 def getAllSubStrings(str):
-	numsInStr = [str[start:end] for start in range(len(str)) for end in range(start+1, len(str)+1)]
-	return convertToInt(numsInStr)
+    numsInStr = [
+        str[start:end]
+        for start in range(len(str))
+        for end in range(start + 1, len(str) + 1)
+    ]
+    return convertToInt(numsInStr)
+
 
 def threeDivSubsequences(number):
-	counter = 0
-	for subNum in getAllSubStrings(number):
-		if numIsDivisibleByThree(subNum):
-			# print(subNum)
-			counter += 1
-	return counter
+    counter = 0
+    for subNum in getAllSubStrings(number):
+        if numIsDivisibleByThree(subNum):
+            # print(subNum)
+            counter += 1
+    return counter
+
 
 # print(getAllSubStrings("303"))
 print(threeDivSubsequences("303"))

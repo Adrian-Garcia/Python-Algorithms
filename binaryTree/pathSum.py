@@ -1,4 +1,4 @@
-'''
+"""
 Path Sum
 	Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path 
 	equals the given sum.
@@ -19,39 +19,40 @@ Example:
 	7    2      1
 
 	return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
-'''
-class TreeNode(object):
+"""
 
-	def __init__(self, val=0, left=None, right=None):
-		self.val = val
-		self.left = left
-		self.right = right
+
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution(object):
+    def hasPathSum(self, root, sum):
 
-	def hasPathSum(self, root, sum):
-		
-		if (root == None):
-			return False
+        if root == None:
+            return False
 
-		s = [root]
+        s = [root]
 
-		while(s):
-			
-			curr = s.pop(-1)
+        while s:
 
-			if(curr.left):
-				curr.left.val += curr.val
-				s.append(curr.left)
-			
-			if(curr.right):
-				curr.right.val += curr.val
-				s.append(curr.right)
+            curr = s.pop(-1)
 
-			if(not curr.left and not curr.right and curr.val == sum):
-				return True
+            if curr.left:
+                curr.left.val += curr.val
+                s.append(curr.left)
 
-		return False
+            if curr.right:
+                curr.right.val += curr.val
+                s.append(curr.right)
+
+            if not curr.left and not curr.right and curr.val == sum:
+                return True
+
+        return False
 
 
 sol = Solution()

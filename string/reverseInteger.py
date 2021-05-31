@@ -1,4 +1,4 @@
-'''
+"""
 Reverse Integer
 	Given a 32-bit signed integer, reverse digits of an integer.
 
@@ -19,28 +19,30 @@ Note:
 	[−231,  231 − 1]. 
 
 	For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
-'''
+"""
+
+
 class Solution(object):
-	
-	def reverse(self, x):
+    def reverse(self, x):
 
-		strNum = str(x)
-		positive = True if x >= 0 else False
+        strNum = str(x)
+        positive = True if x >= 0 else False
 
-		if (not positive):
-			strNum = strNum[:0] + strNum[0+1:]
+        if not positive:
+            strNum = strNum[:0] + strNum[0 + 1 :]
 
-		strNum = strNum [::-1]
+        strNum = strNum[::-1]
 
-		result = int(strNum)
+        result = int(strNum)
 
-		if (result > 2**31-1):
-			return 0
+        if result > 2 ** 31 - 1:
+            return 0
 
-		if (positive):
-			return result
+        if positive:
+            return result
 
-		return result * -1
+        return result * -1
+
 
 sol = Solution()
 print(sol.reverse(1534236469))

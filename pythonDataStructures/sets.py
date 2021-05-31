@@ -3,20 +3,20 @@ emptySet = set()
 mySet = {"Fer", "Adrian", "Atenea", "Zeus"}
 otherSet = {"Burbuja", "Lola"}
 
-print(mySet)		# Print all elements in set
+print(mySet)  # Print all elements in set
 
 # For loop in a set
 for i in mySet:
-	print(i)
+    print(i)
 
 # Look for a value in set
 if "Fer" in mySet:
-	print ("Fer was found")
+    print("Fer was found")
 else:
-	print ("Fer was not found")
+    print("Fer was not found")
 
 # Add an element in the set
-mySet.add("Hestia") 
+mySet.add("Hestia")
 print(mySet)
 
 # Remove an element in the set

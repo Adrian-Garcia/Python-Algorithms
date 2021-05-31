@@ -1,4 +1,4 @@
-'''
+"""
 Let's say a triple (a, b, c) is a zigzag if either a < b > c or a > b < c.
 
 Given an array of integers numbers, your task is to check all the triples of its consecutive elements for being a zigzag. More formally, your task is to construct an array of length numbers.length - 2, where the ith element of the output array equals 1 if the triple (numbers[i], numbers[i + 1], numbers[i + 2]) is a zigzag, and 0 otherwise.
@@ -33,22 +33,25 @@ Guaranteed constraints:
 [output] array.integer
 
 Return an array, where the ith element equals 1 if the triple (numbers[i], numbers[i + 1], numbers[i + 2]) is a zigzag, and 0 otherwise.
-'''
+"""
 
-def tripleZigzag(a,b,c):
-	return ((a > b and b < c) or (a < b and b > c))
+
+def tripleZigzag(a, b, c):
+    return (a > b and b < c) or (a < b and b > c)
+
 
 def isZigzag(numbers):
 
-	response = []
+    response = []
 
-	for i in range(len(numbers) - 2):
-		if tripleZigzag(numbers[i], numbers[i+1], numbers[i+2]):
-			response.append(1)
-		else:
-			response.append(0)
+    for i in range(len(numbers) - 2):
+        if tripleZigzag(numbers[i], numbers[i + 1], numbers[i + 2]):
+            response.append(1)
+        else:
+            response.append(0)
 
-	return response	
+    return response
+
 
 numbers = [1, 2, 1, 3, 4]
 

@@ -1,4 +1,4 @@
-'''
+"""
 For the given string s, and array of strings a, s is said to be a prefix-string of a if it is a concatenation of some prefix of the array a, i.e. if there exists some index i, such that s = a[0] + a[1] + ... + a[i].
 For example, for a = ["one", "two", "three"] strings s = "one" and s = "onetwo" are prefix-strings, while s = "two", s = "onetw", and s = "onethree" are not.
 
@@ -45,26 +45,30 @@ Guaranteed constraints:
 [output] boolean
 
 Return true if every element from b is prefix-string and false otherwise.
-'''
+"""
+
+
 def isInStr(str, substr):
-	return str.find(substr) != -1
+    return str.find(substr) != -1
+
 
 def prefixString(a, b):
-	for str in b:
-		myStr = str
+    for str in b:
+        myStr = str
 
-		for subStr in a:
-			deletedStr = myStr.replace(subStr, '', 1)
+        for subStr in a:
+            deletedStr = myStr.replace(subStr, "", 1)
 
-			if deletedStr == myStr:
-				return False
+            if deletedStr == myStr:
+                return False
 
-			myStr = deletedStr
+            myStr = deletedStr
 
-			if myStr == '':
-				break
+            if myStr == "":
+                break
 
-	return True
+    return True
+
 
 a = ["A", "A", "A", "A"]
 b = ["AAA"]

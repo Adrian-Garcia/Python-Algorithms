@@ -1,4 +1,4 @@
-'''
+"""
 Example
 	For n = 29, the output should be
 	addTwoDigits(n) = 11.
@@ -14,11 +14,13 @@ Guaranteed constraints:
 [output] integer
 
 	The sum of the first and second digits of the input number.
-'''
+"""
+
 
 def addTwoDigits(n):
-	unit = n % 10
-	ten = n - unit
-	return int(ten/10 + unit)
+    unit = n % 10
+    ten = n - unit
+    return int(ten / 10 + unit)
 
-print (addTwoDigits(29))
+
+print(addTwoDigits(29))

@@ -1,4 +1,4 @@
-arr1 = [1,2,3,4]
+arr1 = [1, 2, 3, 4]
 arr2 = arr1
 arr3 = arr1[:]
 arr4 = arr3[::-1]

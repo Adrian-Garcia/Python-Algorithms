@@ -1,4 +1,4 @@
-'''
+"""
 26. Remove Duplicates from Sorted Array
 	Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
 	Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
@@ -26,31 +26,33 @@ Clarification:
 		for (int i = 0; i < len; i++) {
 		    print(nums[i]);
 		}
-'''
+"""
+
 
 class Solution(object):
-	def removeDuplicates(self, nums):
-		
-		if len(nums) == 0:
-			return 0
+    def removeDuplicates(self, nums):
 
-		prevNum = nums[0]
-		length = 1
+        if len(nums) == 0:
+            return 0
 
-		i=0
+        prevNum = nums[0]
+        length = 1
 
-		while i < len(nums)-1:
+        i = 0
 
-			if nums[i+1] != prevNum:
-				length += 1
-				prevNum = nums[i+1]	
+        while i < len(nums) - 1:
 
-			else:
-				nums.remove(nums[i+1])
+            if nums[i + 1] != prevNum:
+                length += 1
+                prevNum = nums[i + 1]
 
-			i+=1
+            else:
+                nums.remove(nums[i + 1])
 
-		return length
+            i += 1
+
+        return length
+
 
 sol = Solution()
-print(sol.removeDuplicates([1,1,2]))
+print(sol.removeDuplicates([1, 1, 2]))

@@ -1,4 +1,4 @@
-'''
+"""
 Add Binary
 	Given two binary strings, return their sum (also a binary string).
 	The input strings are both non-empty and contains only characters 1 or 0.
@@ -15,21 +15,21 @@ Constraints:
 	- Each string consists only of '0' or '1' characters.
 	- 1 <= a.length, b.length <= 10^4
 	- Each string is either "0" or doesn't contain any leading zero.
-'''
+"""
+
 
 class Solution(object):
-	
-	def addBinary(self, a, b):
+    def addBinary(self, a, b):
 
-		aNum = int(a, 2)
-		bNum = int(b, 2)
+        aNum = int(a, 2)
+        bNum = int(b, 2)
 
-		resNum = aNum + bNum
+        resNum = aNum + bNum
 
-		resNum = bin(resNum)
-		return resNum.replace('0b', '')
+        resNum = bin(resNum)
+        return resNum.replace("0b", "")
 
-		
+
 sol = Solution()
 
-print(sol.addBinary('11', '1'))
+print(sol.addBinary("11", "1"))

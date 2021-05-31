@@ -1,4 +1,4 @@
-'''
+"""
 Palindrome Linked List
 	Given a singly linked list, determine if it is a palindrome.
 
@@ -12,56 +12,57 @@ Example 2:
 
 Follow up:
 	Could you do it in O(n) time and O(1) space?
-'''
+"""
+
 
 class ListNode(object):
-	def __init__(self, val=0, next=None):
-		self.val = val
-		self.next = next
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 
 class Solution(object):
-	
-	def getSize(self, head):
-		
-		curr = head
-		size = 0
+    def getSize(self, head):
 
-		while (curr != None):
-			size += 1
-			curr = curr.next
+        curr = head
+        size = 0
 
-		return size
+        while curr != None:
+            size += 1
+            curr = curr.next
 
-	def isPalindrome(self, head):
-		
-		if (head == None):
-			return head
+        return size
 
-		size = self.getSize(head)
-		path = int(size/2)
+    def isPalindrome(self, head):
 
-		prevNode = None
-		currNode = head
-		nextNode = head.next
+        if head == None:
+            return head
 
-		for i in range(path-1):
-			currNode.next = prevNode
-			prevNode = currNode
-			currNode = nextNode
-			nextNode = nextNode.next
+        size = self.getSize(head)
+        path = int(size / 2)
 
-		currNode.next = prevNode
+        prevNode = None
+        currNode = head
+        nextNode = head.next
 
-		self.printList(currNode)
-		self.printList(nextNode)
+        for i in range(path - 1):
+            currNode.next = prevNode
+            prevNode = currNode
+            currNode = nextNode
+            nextNode = nextNode.next
 
+        currNode.next = prevNode
 
-	def printList(self, head):
+        self.printList(currNode)
+        self.printList(nextNode)
 
-		while (head != None):
-			print("{} -> ".format(head.val), end='')
-			head = head.next
-		print()
+    def printList(self, head):
+
+        while head != None:
+            print("{} -> ".format(head.val), end="")
+            head = head.next
+        print()
+
 
 sol = Solution()
 node0 = ListNode()

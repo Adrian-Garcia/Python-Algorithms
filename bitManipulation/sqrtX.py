@@ -1,4 +1,4 @@
-'''
+"""
 Sqrt(x)
 	Implement int sqrt(int x).
 	Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
@@ -14,10 +14,13 @@ Example 2:
 
 Explanation: The square root of 8 is 2.82842..., and since 
              the decimal part is truncated, 2 is returned.
-'''
+"""
+
+
 class Solution(object):
-	def mySqrt(self, x):
-		return int(x**0.5)
+    def mySqrt(self, x):
+        return int(x ** 0.5)
+
 
 sol = Solution()
-print (sol.mySqrt(2))
+print(sol.mySqrt(2))

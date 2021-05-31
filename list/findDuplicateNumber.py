@@ -1,4 +1,4 @@
-'''
+"""
 Find the Duplicate Number
 	Given an array nums containing n + 1 integers where each integer is
 	between 1 and n (inclusive), prove that at least one duplicate
@@ -19,50 +19,55 @@ Note:
 	3. Your runtime complexity should be less than O(n2).
 	4. There is only one duplicate number in the array, but it could be
 		 repeated more than once.
-'''
+"""
+
+
 class Solution(object):
 
-	'''
-	Floyd's Tortoise and Hare
-		Runtime: 40 ms, faster than 99.73% of Python online submissions for Find the Duplicate Number.
-		Memory Usage: 14.6 MB, less than 42.52% of Python online submissions for Find the Duplicate Number.
-	'''
-	def findDuplicate0(self, nums):
+    """
+    Floyd's Tortoise and Hare
+            Runtime: 40 ms, faster than 99.73% of Python online submissions for Find the Duplicate Number.
+            Memory Usage: 14.6 MB, less than 42.52% of Python online submissions for Find the Duplicate Number.
+    """
 
-		tortoise = nums[0]
-		hare = nums[0]
+    def findDuplicate0(self, nums):
 
-		while True:
-			
-			tortoise = nums[tortoise]
-			hare = nums[nums[hare]]
+        tortoise = nums[0]
+        hare = nums[0]
 
-			if tortoise == hare:
-				break
+        while True:
 
-		ptr1 = nums[0]
-		ptr2 = tortoise
+            tortoise = nums[tortoise]
+            hare = nums[nums[hare]]
 
-		while ptr1 != ptr2:
-			ptr1 = nums[ptr1]
-			ptr2 = nums[ptr2]
+            if tortoise == hare:
+                break
 
-		return ptr1
+        ptr1 = nums[0]
+        ptr2 = tortoise
 
-	'''
+        while ptr1 != ptr2:
+            ptr1 = nums[ptr1]
+            ptr2 = nums[ptr2]
+
+        return ptr1
+
+    """
 	Sorting
 		Runtime: 52 ms, faster than 81.45% of Python online submissions for Find the Duplicate Number.
 		Memory Usage: 14.5 MB, less than 78.41% of Python online submissions for Find the Duplicate Number.
-	'''
-	def findDuplicate(self, nums):
+	"""
 
-		nums.sort()
+    def findDuplicate(self, nums):
 
-		for i in range(len(nums)-1):
+        nums.sort()
 
-			j=i+1
-			if nums[i] == nums[j]:
-				return nums[i]
+        for i in range(len(nums) - 1):
+
+            j = i + 1
+            if nums[i] == nums[j]:
+                return nums[i]
+
 
 sol = Solution()
-print(sol.findDuplicate([3,1,3,4,2]))		
+print(sol.findDuplicate([3, 1, 3, 4, 2]))

@@ -1,4 +1,4 @@
-'''
+"""
 125. Valid Palindrome
 	Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 	Note: For the purpose of this problem, we define empty string as valid palindrome.
@@ -13,23 +13,25 @@
 
 	Constraints:
 		s consists only of printable ASCII characters.
-'''
+"""
+
 
 class Solution(object):
-	def isPalindrome(self, s):
+    def isPalindrome(self, s):
 
-		validString = ""
+        validString = ""
 
-		for char in s:
-			if char.isalnum():
-				validString += char.lower()
+        for char in s:
+            if char.isalnum():
+                validString += char.lower()
 
-		reversedString = validString[::-1]
-		return True if reversedString == validString else False
+        reversedString = validString[::-1]
+        return True if reversedString == validString else False
+
 
 sol = Solution()
 
 if sol.isPalindrome("0p"):
-	print("Ajua")
+    print("Ajua")
 else:
-	print("Chale")
+    print("Chale")

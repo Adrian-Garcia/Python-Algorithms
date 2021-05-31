@@ -2,43 +2,43 @@ import queue
 
 # Graph node
 class GraphNode(object):
+    def __init__(self, val):
+        self.val = val
+        self.adjacent = {}
 
-	def __init__ (self, val):
-		self.val = val
-		self.adjacent = {}
+    def printNode(self):
+        print(self.val)
 
-	def printNode(self):
-		print(self.val)
 
-class Graph():
+class Graph:
+    def __init__(self, start, nodeList):
+        self.start = start  # Node in wich the graph beggins
+        self.nodeList = nodeList
 
-	def __init__ (self, start, nodeList):
-		self.start = start	# Node in wich the graph beggins
-		self.nodeList = nodeList
+    def breadthFirst(self):
 
-	def breadthFirst(self):
-		
-		nodes = queue.LifoQueue(len(self.nodeList))
-		nodes.put(self.start)
+        nodes = queue.LifoQueue(len(self.nodeList))
+        nodes.put(self.start)
 
-		visited = {"None"}
+        visited = {"None"}
 
-		while (not nodes.empty()):
+        while not nodes.empty():
 
-			curr = nodes.get()
-			
-			if curr.val in visited:
-				continue
-			else:
-				visited.add(curr)
+            curr = nodes.get()
 
-			print(curr.val)
+            if curr.val in visited:
+                continue
+            else:
+                visited.add(curr)
 
-			for i in curr.adjacent:
-				if i in visited:
-					continue
-				else:
-					nodes.put(curr.adjacent[i])
+            print(curr.val)
+
+            for i in curr.adjacent:
+                if i in visited:
+                    continue
+                else:
+                    nodes.put(curr.adjacent[i])
+
 
 node1 = GraphNode("Nuevo Leon")
 node2 = GraphNode("San Luis")
@@ -50,7 +50,7 @@ node1.adjacent["San Luis"] = node2
 node1.adjacent["Zacatecas"] = node5
 node2.adjacent["Nuevo Leon"] = node1
 node2.adjacent["Zacatecas"] = node5
-node2.adjacent["Guanajuato"] = node3 
+node2.adjacent["Guanajuato"] = node3
 node3.adjacent["San Luis"] = node2
 node3.adjacent["Zacatecas"] = node5
 node4.adjacent["Zacatecas"] = node5

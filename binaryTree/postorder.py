@@ -1,53 +1,56 @@
-class Node: 
-	  
-	# Constructor to create a new node 
-	def __init__(self, data): 
-		self.data = data 
-		self.left = None
-		self.right = None
+class Node:
+
+    # Constructor to create a new node
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
 
 def iterativePostorder(root):
 
-	if root is None:
-		return
+    if root is None:
+        return
 
-	stack = []
-	result = []
+    stack = []
+    result = []
 
-	stack.append(root)
+    stack.append(root)
 
-	while stack:
-		
-		currNode = stack.pop()
-		result.append(currNode)
+    while stack:
 
-		if currNode.left:
-			stack.append(currNode.left)
+        currNode = stack.pop()
+        result.append(currNode)
 
-		if currNode.right:
-			stack.append(currNode.right)
+        if currNode.left:
+            stack.append(currNode.left)
 
-	while result:
-		currNode = result.pop()
-		print(currNode.data, end=' ')
+        if currNode.right:
+            stack.append(currNode.right)
+
+    while result:
+        currNode = result.pop()
+        print(currNode.data, end=" ")
+
 
 def recursivePostorder(root):
-	if root is not None:
-		recursivePostorder(root.left)
-		recursivePostorder(root.right)
-		print(root.data, end=' ')
+    if root is not None:
+        recursivePostorder(root.left)
+        recursivePostorder(root.right)
+        print(root.data, end=" ")
 
-root = Node(10) 
-root.left = Node(8) 
-root.right = Node(2) 
-root.left.left = Node(3) 
-root.left.right = Node(5) 
-root.right.left = Node(2) 
+
+root = Node(10)
+root.left = Node(8)
+root.right = Node(2)
+root.left.left = Node(3)
+root.left.right = Node(5)
+root.right.left = Node(2)
 
 print("--------Postorder------")
 
-print("Iterative: ", end='')
+print("Iterative: ", end="")
 iterativePostorder(root)
-print ("\nRecursive: ", end='')
+print("\nRecursive: ", end="")
 recursivePostorder(root)
 print()

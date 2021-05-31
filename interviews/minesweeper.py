@@ -70,7 +70,8 @@
 from random import seed
 from random import randint
 
-class Space():
+
+class Space:
     def __init__(self, mine):
         self.mine = mine
         self.discovered = False
@@ -78,18 +79,19 @@ class Space():
     def printSpaceSecret(self):
         if self.discovered:
             if self.mine:
-                print(" m ", end = '')
+                print(" m ", end="")
             else:
-                print(" e ", end='')
+                print(" e ", end="")
 
         else:
-            print(" # ", end='')
+            print(" # ", end="")
 
     def printSpace(self):
         if self.mine:
-            print(" m ", end = '')
+            print(" m ", end="")
         else:
-            print(" e ", end='')
+            print(" e ", end="")
+
 
 # This function was not ussed on the interview
 def shouldHaveMine(noMines, currentNumberOfMines):
@@ -100,6 +102,7 @@ def shouldHaveMine(noMines, currentNumberOfMines):
     num = randint(0, 1)
 
     return num == 1
+
 
 def fixNumberOfMines(columns, rows, noMines, board):
 
@@ -113,6 +116,7 @@ def fixNumberOfMines(columns, rows, noMines, board):
         if not board[x][y].mine:
             board[x][y].mine = True
             currentNumberOfMines += 1
+
 
 def minesweeper(columns, rows, noMines):
 
@@ -132,6 +136,7 @@ def minesweeper(columns, rows, noMines):
             space.printSpace()
         print("")
     print("")
+
 
 # minesweeper(3, 3, 3)
 # minesweeper(3, -3, 3)
