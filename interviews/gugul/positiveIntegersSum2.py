@@ -28,49 +28,48 @@ N is an integer within the range [1..100,000,000].
 import sys
 from itertools import combinations
 
+
 def get_positive_numbers(num):
-	nums = []
-	for i in range(num):
-		n = (i + 1) * 2
-		if n > num:
-			return nums
-		nums.append(n)
+    nums = []
+    for i in range(num):
+        n = (i + 1) * 2
+        if n > num:
+            return nums
+        nums.append(n)
+
 
 def get_biggest_list(nums, target):
-	curr = []
-	res = []
-	number = 0
+    curr = []
+    res = []
+    number = 0
 
-	nums.reverse()
+    nums.reverse()
 
-	for i in range(len(nums)):
-		for j in range(i+1):
-			print(nums[i - j], end=" ")
-			if number + nums[i-j] < target:
-				curr.append(nums[i-j])
-				number += nums[i-j]
-				print(number)
-		if len(res) < len(curr):
-			res = curr
-		number = 0
-		curr = []
-		print("--------------")
+    for i in range(len(nums)):
+        for j in range(i + 1):
+            print(nums[i - j], end=" ")
+            if number + nums[i - j] < target:
+                curr.append(nums[i - j])
+                number += nums[i - j]
+                print(number)
+        if len(res) < len(curr):
+            res = curr
+        number = 0
+        curr = []
+        print("--------------")
 
-		print()
-	print()
+        print()
+    print()
 
-
-
-
-	return res
+    return res
 
 
 def solution(N):
-	if N % 2 != 0:
-		return []
+    if N % 2 != 0:
+        return []
 
-	positiveNumbers = get_positive_numbers(N)
-	return get_biggest_list(positiveNumbers, N)
+    positiveNumbers = get_positive_numbers(N)
+    return get_biggest_list(positiveNumbers, N)
 
 
 print(solution(10))

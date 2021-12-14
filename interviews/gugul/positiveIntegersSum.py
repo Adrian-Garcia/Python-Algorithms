@@ -28,35 +28,45 @@ N is an integer within the range [1..100,000,000].
 import sys
 from itertools import combinations
 
-def get_positive_numbers(num):
-	nums = []
-	for i in range(num):
-		n = (i + 1) * 2
-		if n > num:
-			return nums
-		nums.append(n)
 
-	return nums
+def get_positive_numbers(num):
+    nums = []
+    for i in range(num):
+        n = (i + 1) * 2
+        if n > num:
+            return nums
+        nums.append(n)
+
+    return nums
+
 
 def get_all_combinations(positiveNumbers):
-	return sum([list(map(list, combinations(positiveNumbers, i))) for i in range(len(positiveNumbers) + 1)], [])
+    return sum(
+        [
+            list(map(list, combinations(positiveNumbers, i)))
+            for i in range(len(positiveNumbers) + 1)
+        ],
+        [],
+    )
+
 
 def get_sum_target(combinations, target):
-	response = []
-	for comb in combinations:
-		if sum(comb) == target:
-			response.append(comb)
+    response = []
+    for comb in combinations:
+        if sum(comb) == target:
+            response.append(comb)
 
-	return response
+    return response
+
 
 def solution(N):
-	if N % 2 != 0:
-		return []
+    if N % 2 != 0:
+        return []
 
-	positiveNumbers = get_positive_numbers(N)
-	combinations = get_all_combinations(positiveNumbers)
-	subsets = get_sum_target(combinations, N)
-	return max(subsets, key = len)
+    positiveNumbers = get_positive_numbers(N)
+    combinations = get_all_combinations(positiveNumbers)
+    subsets = get_sum_target(combinations, N)
+    return max(subsets, key=len)
 
 
 print(solution(10))

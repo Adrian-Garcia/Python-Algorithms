@@ -22,8 +22,12 @@ In your solution, focus on correctness. The performance of your solution will no
 """
 import sys
 
+
 def get_substrings_from_string(string):
-    return [string[i: j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)]
+    return [
+        string[i:j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)
+    ]
+
 
 def get_even_repeat(substr):
     chars = {}
@@ -44,6 +48,7 @@ def get_even_repeat(substr):
 
     return len(substr)
 
+
 def get_longest_unreapeated(substrings):
     longest = -1
     for substr in substrings:
@@ -53,12 +58,14 @@ def get_longest_unreapeated(substrings):
 
     return longest
 
+
 def solution(S):
     if S == "":
         return 0
 
     substrings = get_substrings_from_string(S)
     return get_longest_unreapeated(substrings)
+
 
 s = "pleasehireme"
 print(solution(s))
