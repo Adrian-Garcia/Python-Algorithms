@@ -51,29 +51,27 @@ class ResultFetcher:
     current_page: Optional[int]
     current_index: Optional[int]
 
-
     # 5
     # 10 / 5
     # 10 // 11 = 1
     # 10 // 20 = 2
 
-    '''
+    """
     29 -> 29 primeros
         10
         10
         9
-    '''
+    """
 
-    '''
+    """
     10 -> 10 primeros
     15 -> 15 siguientes después de los 10 primeros
     30 -> 30 siguientes después de los 10 primeros
-    '''
+    """
 
     def __init__(self):
         self.current_page = 0
         self.current_index = 0
-
 
     def flat_list(self, lists: List[List[int]]) -> List[int]:
         result = []
@@ -88,8 +86,8 @@ class ResultFetcher:
 
         num_of_requests = (PAGE_SIZE // num_results) + self.current_page
         for i in range(num_of_requests):
-            num_results -= PAGE_SIZE                # 0
-            res = fetch_page(self.current_page)     # Check this
+            num_results -= PAGE_SIZE  # 0
+            res = fetch_page(self.current_page)  # Check this
 
             if num_results < PAGE_SIZE and num_results != 0:
                 res["results"] = res["results"][:num_results]
