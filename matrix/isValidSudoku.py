@@ -90,7 +90,9 @@ class Solution:
 
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         return (
-            self.checkRows(board) and self.checkCols(board) and self.checkSquares(board)
+            self.checkRows(board)
+            and self.checkCols(board)
+            and self.checkSquares(board)
             # self.checkRows(board)
             # and self.checkCols(board)
         )
