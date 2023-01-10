@@ -64,4 +64,5 @@ def findTotalPower(power):
 
     return getResult(power, [], 0, 0, prefix) % mod
 
+
 print(findTotalPower([2, 3, 2, 1]))

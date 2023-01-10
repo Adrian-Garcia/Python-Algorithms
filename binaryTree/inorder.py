@@ -8,13 +8,12 @@ class Node:
 
 
 def iterativeInorder(root):
-
     currNode = root
     stack = []
 
     while True:
 
-        if currNode is not None:
+        if currNode:
             stack.append(currNode)
             currNode = currNode.left
 
