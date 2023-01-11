@@ -36,10 +36,10 @@ class Solution:
                 stack.append(char)
                 continue
 
-            if stack:
-                token = stack.pop()
-            else:
+            if not stack:
                 return False
+
+            token = stack.pop()
 
             if (
                 (char == ")" and token != "(")
