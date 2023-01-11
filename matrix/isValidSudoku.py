@@ -51,16 +51,12 @@ class Solution:
             numsInRow = set()
 
             for j in range(Solution.SUDOKU_LENGTH):
-                space = board[i//3][j//3]
-
-                print(space, end=' ')
+                space = board[i][j]
 
                 if space != "." and space in numsInRow:
                     return False
 
                 numsInRow.add(space)
-
-            print()
 
         return True
 
@@ -78,21 +74,17 @@ class Solution:
 
         return True
 
-    def checkSquares(self, board: List[List[str]]) -> bool:
+    def checkQuadrants(self, board: List[List[str]]) -> bool:
         for i in range(9):
             numsInSquare = set()
 
             for j in range(9):
-                space = board[i % 3][j % 3]
-
-                print(space, end=" ")
+                space = board[i][j]
 
                 if space != "." and space in numsInSquare:
                     return False
 
                 numsInSquare.add(space)
-
-            print()
 
         return True
 
@@ -100,9 +92,7 @@ class Solution:
         return (
             self.checkRows(board)
             and self.checkCols(board)
-            and self.checkSquares(board)
-            # self.checkRows(board)
-            # and self.checkCols(board)
+            and self.checkQuadrants(board)
         )
 
 
