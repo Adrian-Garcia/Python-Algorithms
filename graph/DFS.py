@@ -16,19 +16,19 @@ class Graph:
     def DFS(self, s):
 
         visited = [False] * (len(self.graph))
-        queue = []
+        stack = []
 
-        queue.append(s)
+        stack.append(s)
         visited[s] = True
 
-        while queue:
+        while stack:
 
-            s = queue.pop()
+            s = stack.pop()
             print(s, end=" ")
 
             for i in self.graph[s]:
                 if visited[i] == False:
-                    queue.append(i)
+                    stack.append(i)
                     visited[i] = True
 
 
