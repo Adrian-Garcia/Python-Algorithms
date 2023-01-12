@@ -6,12 +6,10 @@ class TreeNode:
 
 
 def levelByLevel(root: TreeNode):
-
     queue = []
     queue.append(root)
 
     while queue:
-
         curr = queue.pop(0)
 
         if curr.left != None:

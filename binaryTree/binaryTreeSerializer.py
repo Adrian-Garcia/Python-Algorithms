@@ -40,6 +40,9 @@ class TreeNode(object):
 
 class Codec:
     def serialize(self, root: TreeNode) -> str:
+        if not root:
+            return "[]"
+
         result = []
         queue = []
         queue.append(root)
@@ -59,18 +62,40 @@ class Codec:
 
         return f'[{ ",".join(result) }]'
 
-    def deserialize(self, data: str):
+    def convertTreeNodes(self, data: str):
         serializedTree = data.strip("][").split(",")
+        treeNodeList = []
+        for node in range(len(serializedTree)):
+            if serializedTree[node] != "None":
+                treeNodeList.append(TreeNode(int(serializedTree[node])))
+            else:
+                treeNodeList.append(None)
 
-        if not serializedTree:
+        return treeNodeList
+
+    def deserialize(self, data: str) -> list:
+        if data in ["", "[]", "None", None]:
             return None
 
-        val = int(serializedTree.pop(0))
-        root = TreeNode(val)
+        treeNodeList = self.convertTreeNodes(data)
+
+        root = treeNodeList.pop(0)
         queue = [root]
 
-        while serializedTree:
+        while queue:
             curr = queue.pop(0)
+
+            if not curr:
+                continue
+
+            left = treeNodeList.pop(0) if treeNodeList else None
+            right = treeNodeList.pop(0) if treeNodeList else None
+
+            curr.left = left
+            queue.append(curr.left)
+
+            curr.right = right
+            queue.append(curr.right)
 
         return root
 
@@ -81,7 +106,12 @@ root.right = TreeNode(3)
 root.right.left = TreeNode(4)
 root.right.right = TreeNode(5)
 
-serialize = Codec().serialize(root)
-deserialize = Codec().deserialize("[1,2,3,None,None,4,5]")
+codec = Codec()
 
-print(deserialize)
+serialize = codec.serialize(root)
+deserialize = codec.deserialize(serialize)
+serialize2 = codec.serialize(deserialize)
+
+print("deserialize", deserialize)
+print("serialize", serialize)
+print("serialize2", serialize2)
