@@ -29,6 +29,7 @@ Example 2:
     - Input: root = []
     - Output: []
 """
+from collections import deque
 
 
 class TreeNode(object):
@@ -44,16 +45,14 @@ class Codec:
             return "[]"
 
         result = []
-        queue = []
-        queue.append(root)
+        queue = deque([root])
 
         while queue:
-            curr = queue.pop(0)
+            curr = queue.popleft()
 
             if curr:
                 result.append(str(curr.val))
-                queue.append(curr.left)
-                queue.append(curr.right)
+                queue += [curr.left, curr.right]
             else:
                 result.append(str(None))
 
@@ -64,10 +63,10 @@ class Codec:
 
     def convertTreeNodes(self, data: str):
         serializedTree = data.strip("][").split(",")
-        treeNodeList = []
-        for node in range(len(serializedTree)):
-            if serializedTree[node] != "None":
-                treeNodeList.append(TreeNode(int(serializedTree[node])))
+        treeNodeList = deque([])
+        for node in serializedTree:
+            if node != "None":
+                treeNodeList.append(TreeNode(int(node)))
             else:
                 treeNodeList.append(None)
 
@@ -79,17 +78,17 @@ class Codec:
 
         treeNodeList = self.convertTreeNodes(data)
 
-        root = treeNodeList.pop(0)
-        queue = [root]
+        root = treeNodeList.popleft()
+        queue = deque([root])
 
         while queue:
-            curr = queue.pop(0)
+            curr = queue.popleft()
 
             if not curr:
                 continue
 
-            left = treeNodeList.pop(0) if treeNodeList else None
-            right = treeNodeList.pop(0) if treeNodeList else None
+            left = treeNodeList.popleft() if treeNodeList else None
+            right = treeNodeList.popleft() if treeNodeList else None
 
             curr.left = left
             queue.append(curr.left)
