@@ -73,13 +73,11 @@ def priorityQueue():
 
 
 def set():
-
-    mySet = {"Delete"}
+    mySet = set()
 
     mySet.add("Fer")
     mySet.add("Adrian")
     mySet.add("Lucero")
-    mySet.remove("Delete")
 
     for i in mySet:
         print(i, end=" ")
