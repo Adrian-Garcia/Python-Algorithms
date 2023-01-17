@@ -1,64 +1,27 @@
-"""
-Fails when one of the needed elements are in the last position
-
-Given a vector and a number, return the subset of numbers that summed, return the given number
-	
-	Test 1
-		numbers = [1,2,3]
-		goal = 4
-
-		return = [1,3] 1 + 3 = 4
-
-	Test 2
-		numbers = [1,-2,3]
-		goal = -1
-
-		return = [1,-2]
-"""
-
-result = []
-counter = 1
+from typing import List
 
 
-def backtracking(numbers, goal, currentSubset, sum, index, flagToStop):
+def backtracking(
+    nums: List[int], currNums: List[int], currIndex: int, result: List[int]
+) -> None:
+    if currNums not in result:
+        result.append(currNums)
 
-    print(counter)
-    # counter = counter + 1
-
-    if index > len(numbers) - 1:
+    if currIndex > len(nums) - 1:
         return
 
-    elif flagToStop:
-        return
+    diffNums = currNums.copy()
+    diffNums.append(nums[currIndex])
 
-    elif sum == goal:
-        flagToStop = True
-        result = currentSubset
-        print("EUREKA: {}".format(currentSubset))
-        return
-
-    else:
-        currentSubsetSame = currentSubset.copy()
-        currentSubsetDiff = currentSubset.copy()
-        currentSubsetDiff.append(numbers[index])
-
-        backtracking(numbers, goal, currentSubsetSame, sum, index + 1, flagToStop)
-        backtracking(
-            numbers,
-            goal,
-            currentSubsetDiff,
-            sum + numbers[index],
-            index + 1,
-            flagToStop,
-        )
+    backtracking(nums, diffNums, currIndex + 1, result)
+    backtracking(nums, currNums, currIndex + 1, result)
 
 
-class Solution(object):
-    def subsets(self, numbers, goal):
-        backtracking(numbers, goal, [], 0, 0, False)
-        return result
+def subsets(nums: List[int]) -> List[List[int]]:
+    result = []
+    backtracking(nums=nums, currNums=[], currIndex=0, result=result)
+
+    return result
 
 
-sol = Solution()
-
-print(sol.subsets([1, -2, 3], 1))
+print(subsets([1, 2, 3]))  # [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
