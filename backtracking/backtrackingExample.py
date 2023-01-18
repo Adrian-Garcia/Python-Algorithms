@@ -24,4 +24,5 @@ def subsets(nums: List[int]) -> List[List[int]]:
     return result
 
 
-print(subsets([1, 2, 3]))  # [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+# [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+print(subsets([1, 2, 3]))
