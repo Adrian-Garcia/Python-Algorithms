@@ -1,7 +1,3 @@
-"""
-Reduce The Array
-"""
-
 import heapq
 
 
