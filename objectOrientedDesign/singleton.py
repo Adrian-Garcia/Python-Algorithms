@@ -3,6 +3,8 @@ Ensures that a class has only one instance and ensures access
 to the instance through the application
     - Laakmann G., Cracking The Coding Interview (pg. 126)
 """
+
+
 class SingletonClass(object):
     variable = "Assign variables"
 
