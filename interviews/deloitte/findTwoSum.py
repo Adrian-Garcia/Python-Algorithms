@@ -16,36 +16,29 @@ def populate_dict(nums):
 
 def findTwoSum(nums, target):
     dictNums = populate_dict(nums)
-    result = set()
+    combinations = set()
 
     for i in range(len(nums)):
         num = nums[i]
         candidate = target - num
 
-        if candidate in dictNums:
-            if dictNums[candidate] == i:
-                continue
+        if candidate in dictNums and dictNums[candidate] != i:
+            min_index = str(min(i, dictNums[candidate]))
+            max_index = str(max(i, dictNums[candidate]))
+            combinations.add((f"{min_index},{max_index}"))
 
-            list_to_append = (
-                str(max(i, dictNums[candidate]))
-                + ","
-                + str(min(i, dictNums[candidate]))
-            )
-            result.add(list_to_append)
+    result = []
+    for combination in combinations:
+        indexes = combination.split(",")
+        first = int(indexes[0])
+        second = int(indexes[1])
+        result.append((first, second))
 
-    if not result:
-        return None
-
-    combinations = []
-    for combination in result:
-        first = int(combination.split(",")[0])
-        second = int(combination.split(",")[1])
-        combinations.append((first, second))
-
-    return combinations
+    return result if len(result) else None
 
 
 nums = [1, 3, 5, 7, 9, 6]
+# nums = []
 target = 12
 response = findTwoSum(nums, target)
 print(response)
