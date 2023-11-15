@@ -19,7 +19,7 @@ Explanation: The square root of 8 is 2.82842..., and since
 
 class Solution(object):
     def mySqrt(self, x):
-        return int(x ** 0.5)
+        return int(x**0.5)
 
 
 sol = Solution()
