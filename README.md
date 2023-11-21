@@ -1,8 +1,8 @@
 # Python-Algorithms
 Personal algorithms developed in Python.
+- Email: adriangarlop22@gmail.com & adriangarlop.dev@gmail.com
 - [Github](https://github.com/Adrian-Garcia)
 - [LinkedIn](https://www.linkedin.com/in/adrian-garcial/)
-- Email: adriangarlop22@gmail.com & adriangarlop.dev@gmail.com
 
 ### Directores related to Leetcode
 Generally speaking, these directories contain leetcode solutions. Most of them work:
