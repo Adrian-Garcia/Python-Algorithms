@@ -1,3 +1,10 @@
+"""
+Data Structure for graphs. 
+  - DFS need to be verified 
+  - BFS need to be verified 
+"""
+
+
 class Node(object):
     def __init__(self, val=0, neighbors=None):
         self.val = val
