@@ -1,4 +1,6 @@
-""" Does not work yet
+""" 
+This one is not accepted by Leetcode... But it should. New memory slots are used and for some reason it is not accepted
+
 133. Clone Graph
 Medium
 Given a reference of a node in a connected undirected graph.
@@ -63,6 +65,12 @@ class Node(object):
 
 
 class Solution(object):
+    def __getNewNode(self, new_graph, curr_node):
+        if curr_node.val in new_graph:
+            return new_graph[curr_node.val]
+        else:
+            return Node(curr_node.val)
+
     def cloneGraph(self, node):
         if not node:
             return
@@ -78,10 +86,12 @@ class Solution(object):
             if curr_node.val in visited:
                 continue
 
-            new_node = Node(curr_node.val)
-            if not start:
-                start = curr_node
+            new_node = self.__getNewNode(new_graph, curr_node)
+
             visited.add(curr_node.val)
+
+            if not start:
+                start = new_node
 
             for neighbor in curr_node.neighbors:
                 new_neighbor = None
@@ -91,6 +101,7 @@ class Solution(object):
 
                 else:
                     new_neighbor = Node(neighbor.val)
+                    new_graph[new_neighbor.val] = new_neighbor
 
                 if neighbor.val not in visited:
                     queue.append(neighbor)
@@ -154,13 +165,37 @@ new_node2 = new_node1.neighbors[0]
 new_node3 = new_node2.neighbors[1]
 new_node4 = new_node1.neighbors[1]
 
-print("new_node1 ->", new_node1.val)
+print("========== original ==========\n")
+
+print("node1 ->", node1)
+print("node2 ->", node2)
+print("node3 ->", node3)
+print("node4 ->", node4)
+
+print("\nnode1 ->", node1.val)
+print("node2 ->", node2.val)
+print("node3 ->", node3.val)
+print("node4 ->", node4.val)
+
+print("\nnode1 neighbros ->", node1.getNodeNeighbors())
+print("node2 neighbros ->", node2.getNodeNeighbors())
+print("node3 neighbros ->", node3.getNodeNeighbors())
+print("node4 neighbros ->", node4.getNodeNeighbors())
+
+print("\n\n========== new ==========\n")
+
+print("new_node1 ->", new_node1)
+print("new_node2 ->", new_node2)
+print("new_node3 ->", new_node3)
+print("new_node4 ->", new_node4)
+
+
+print("\nnew_node1 ->", new_node1.val)
 print("new_node2 ->", new_node2.val)
 print("new_node3 ->", new_node3.val)
 print("new_node4 ->", new_node4.val)
 
-
-print("new_node1 neighbros ->", new_node1.getNodeNeighbors())
+print("\nnew_node1 neighbros ->", new_node1.getNodeNeighbors())
 print("new_node2 neighbros ->", new_node2.getNodeNeighbors())
 print("new_node3 neighbros ->", new_node3.getNodeNeighbors())
 print("new_node4 neighbros ->", new_node4.getNodeNeighbors())
