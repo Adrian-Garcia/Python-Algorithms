@@ -10,6 +10,7 @@ Generally speaking, these directories contain leetcode solutions. Most of them w
 - bitManipulation
 - binaryTree
 - graph
+- greedy
 - linkedList
 - list
 - matrix
