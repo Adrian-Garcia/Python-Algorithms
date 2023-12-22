@@ -20,7 +20,7 @@ Constraints:
 
 class Solution(object):
     def isPerfectSquare(self, num):
-        return True if num**0.5 - int(num**0.5) == 0 else False
+        return True if num ** 0.5 - int(num ** 0.5) == 0 else False
 
 
 sol = Solution()

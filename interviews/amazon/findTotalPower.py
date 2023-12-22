@@ -9,7 +9,7 @@ def findTotalPower1(power):
             combination = power[i : j + 1]
             result += min(combination) * sum(combination)
 
-    return result % (10**9 + 7)
+    return result % (10 ** 9 + 7)
 
 
 # print(findTotalPower([2,3,2,1]))
@@ -56,7 +56,7 @@ def getResult(power, last, currSum, preSum, prefix):
 
 
 def findTotalPower(power):
-    mod = 10**9 + 7
+    mod = 10 ** 9 + 7
     prefix = [power[i] for i in range(len(power))]
 
     for i in range(1, len(power)):

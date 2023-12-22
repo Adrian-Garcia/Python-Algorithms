@@ -35,7 +35,7 @@ class Solution(object):
 
         result = int(strNum)
 
-        if result > 2**31 - 1:
+        if result > 2 ** 31 - 1:
             return 0
 
         if positive:
