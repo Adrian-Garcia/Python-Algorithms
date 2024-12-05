@@ -1,5 +1,5 @@
 """ 2337. Move Pieces to Obtain a String
-https://leetcode.com/problems/move-pieces-to-obtain-a-string/submissions/1471259929/?envType=daily-question&envId=2024-12-05
+https://leetcode.com/problems/move-pieces-to-obtain-a-string/submissions/1471259929/?envdirection=daily-question&envId=2024-12-05
 
 You are given two strings start and target, both of length n. Each string consists only of the
 characters 'L', 'R', and '_' where:
@@ -38,18 +38,10 @@ Constraints:
     start and target consist of the characters 'L', 'R', and '_'.
 """
 
-"""
-startMap =      L1 R4 R6
-targetMap =     L0 R7 R8
-
-
-start = "_L__R__R_", target = "L______RR"
-"""
-
 
 class Piece:
-    def __init__(self, type: str, position: int):
-        self.type = type
+    def __init__(self, direction: str, position: int):
+        self.direction = direction
         self.position = position
 
 
@@ -60,13 +52,13 @@ class Solution:
             startPiece = startMap[i]
             targetPiece = targetMap[i]
 
-            if startPiece.type != targetPiece.type:
+            if startPiece.direction != targetPiece.direction:
                 return False
 
-            if startPiece.type == "L" and startPiece.position < targetPiece.position:
+            if startPiece.direction == "L" and startPiece.position < targetPiece.position:
                 return False
 
-            if startPiece.type == "R" and startPiece.position > targetPiece.position:
+            if startPiece.direction == "R" and startPiece.position > targetPiece.position:
                 return False
 
         return True
@@ -90,13 +82,13 @@ class Solution:
         return self._compareMaps(startMap, targetMap)
 
 
-# start = "_L__R__R_"
-# target = "L______RR"
+start = "_L__R__R_"
+target = "L______RR"
 
 # start = "R_L_"
 # target = "__LR"
 
-start = "_R"
-target = "R_"
+# start = "_R"
+# target = "R_"
 
 print(Solution().canChange(start, target))
