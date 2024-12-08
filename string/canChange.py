@@ -55,10 +55,16 @@ class Solution:
             if startPiece.direction != targetPiece.direction:
                 return False
 
-            if startPiece.direction == "L" and startPiece.position < targetPiece.position:
+            if (
+                startPiece.direction == "L"
+                and startPiece.position < targetPiece.position
+            ):
                 return False
 
-            if startPiece.direction == "R" and startPiece.position > targetPiece.position:
+            if (
+                startPiece.direction == "R"
+                and startPiece.position > targetPiece.position
+            ):
                 return False
 
         return True
