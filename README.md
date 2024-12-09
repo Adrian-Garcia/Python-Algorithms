@@ -4,7 +4,7 @@ Personal algorithms developed in Python.
 - [Github](https://github.com/Adrian-Garcia)
 - [LinkedIn](https://www.linkedin.com/in/adrian-garcial/)
 
-### Directores related to Leetcode
+### Directories related to Leetcode
 Generally speaking, these directories contain leetcode solutions. Most of them work:
 - backtracking
 - bitManipulation

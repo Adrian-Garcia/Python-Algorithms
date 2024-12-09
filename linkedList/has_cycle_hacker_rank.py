@@ -13,14 +13,14 @@ def has_cycle(head):
     if not head or not head.next:
         return 0
 
-    herr = head.next
+    hare = head.next
     tortoise = head
 
-    while herr and tortoise:
-        if herr == tortoise or herr.next == tortoise:
+    while hare and tortoise:
+        if hare == tortoise or hare.next == tortoise:
             return 1
 
-        herr = herr.next.next if herr.next and herr.next.next else None
+        hare = hare.next.next if hare.next and hare.next.next else None
         tortoise = tortoise.next
 
     return 0

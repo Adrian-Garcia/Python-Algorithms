@@ -71,20 +71,19 @@ class Solution:
         Expected
             true
         """
-        tortoise = head
-        hare = head
-        start = True
 
         if not head or not head.next:
             return False
 
-        while tortoise and hare:
-            if tortoise == hare and not start:
+        tortoise = head
+        hare = head.next
+
+        while hare and tortoise:
+            if hare == tortoise or hare.next == tortoise:
                 return True
 
             hare = hare.next.next if hare.next and hare.next.next else None
             tortoise = tortoise.next
-            start = False
 
         return False
 
