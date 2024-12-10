@@ -55,23 +55,8 @@ class Solution:
 
         return False
 
+    # Best implementation
     def hasCycleHareTortoise(self, head: ListNode) -> bool:
-        """
-        Hare-Tortoise algorithm
-
-        Uses constant memory and has linear time complexity but fails in this case:
-
-        Input
-            head = [-21,10,17,8,4,26,5,35,33,-7,-16,27,-12,6,29,-12,5,9,20,14,14,2,13,-24,21,23,-21,5]
-            pos = 24
-
-        Output
-            false
-
-        Expected
-            true
-        """
-
         if not head or not head.next:
             return False
 
