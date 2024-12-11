@@ -3,7 +3,7 @@ https://www.hackerrank.com/challenges/balanced-brackets/problem
 """
 
 # Not fast enough
-def isBalancedOne(s) -> str:
+def isBalanced(s) -> str:
     leftBrackets = []
     rightBracket = []
 
@@ -19,24 +19,6 @@ def isBalancedOne(s) -> str:
                 return "NO"
 
     return "NO" if leftBrackets or rightBracket else "YES"
-
-
-def isBalanced(s) -> str:
-    bracketValues = {
-        "(": 1,
-        ")": -1,
-        "[": 2,
-        "]": -2,
-        "{": 3,
-        "}": -3,
-    }
-
-    sum = 0
-
-    for bracket in s:
-        sum += bracketValues[bracket]
-
-    return "NO" if sum else "YES"
 
 
 s = "{[()]()]}"

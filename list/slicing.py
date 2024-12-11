@@ -7,6 +7,9 @@ a[:]				a copy of the whole array
 
 a = [0, 1, 2, 3, 4, 5]
 
+
+print(a[0:4])  # [0, 1, 2, 3]
+
 # Intems from index one to index 3-1
 print(a[1:3])  # [1, 2]
 
