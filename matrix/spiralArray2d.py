@@ -1,4 +1,4 @@
-''' Question 1: 2D Spiral Array
+""" Question 1: 2D Spiral Array
 https://www.facebook.com/careers/life/sample_interview_questions
 
 Find the pattern and complete the function:
@@ -27,14 +27,16 @@ Sample Result
         24 45 58 57 56 55 38 13
         23 44 43 42 41 40 39 14
         22 21 20 19 18 17 16 15
-'''
+"""
 from typing import List
+
 
 def printMatrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
-            print(matrix[i][j], end = "\t")
+            print(matrix[i][j], end="\t")
         print()
+
 
 def spiral(n: int) -> List[List[int]]:
     matrix = [["F"] * n for _ in range(n)]
@@ -44,33 +46,33 @@ def spiral(n: int) -> List[List[int]]:
     j = 0
 
     limit = n * n
-    status = "j+"
+    status = "right"
 
     while count <= limit:
 
-        if status == "j+":
+        if status == "right":
             while j < n and matrix[i][j] == "F":
                 matrix[i][j] = count
                 count += 1
                 j += 1
-            
+
             j -= 1
             i += 1
 
-            status = "i+"
+            status = "down"
 
-        elif status == "i+":
+        elif status == "down":
             while i < n and matrix[i][j] == "F":
                 matrix[i][j] = count
                 count += 1
                 i += 1
-            
+
             i -= 1
             j -= 1
 
-            status = "j-"
+            status = "left"
 
-        elif status == "j-":
+        elif status == "left":
             while j >= 0 and matrix[i][j] == "F":
                 matrix[i][j] = count
                 count += 1
@@ -79,9 +81,9 @@ def spiral(n: int) -> List[List[int]]:
             j += 1
             i -= 1
 
-            status = "i-"
+            status = "up"
 
-        elif status == "i-":
+        elif status == "up":
             while i >= 0 and matrix[i][j] == "F":
                 matrix[i][j] = count
                 count += 1
@@ -89,11 +91,9 @@ def spiral(n: int) -> List[List[int]]:
 
             i += 1
             j += 1
-            status = "j+"
-
-        printMatrix(matrix)
-        print()
+            status = "right"
 
     return matrix
 
-printMatrix(spiral(7))
+
+printMatrix(spiral(8))
