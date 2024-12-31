@@ -160,7 +160,7 @@ class Solution(object):
                 start = new_node
 
             visited.add(curr_node_val)
-            new_graph[curr]
+            new_graph[curr_node.val] = curr_node
 
             for curr_neighbor in curr_node.neighbors:
                 # print(neighbor)
