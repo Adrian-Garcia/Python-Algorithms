@@ -1,4 +1,4 @@
-''' 146. LRU Cache
+""" 146. LRU Cache
 https://leetcode.com/problems/lru-cache/description/
 
 Design a data structure that follows the constraints of a
@@ -53,12 +53,11 @@ Constraints:
     0 <= key <= 104
     0 <= value <= 105
     At most 2 * 105 calls will be made to get and put.
-'''
+"""
 from typing import OrderedDict
 
 
 class LRUCache(object):
-
     def __init__(self, capacity):
         self.cache = OrderedDict()
         self.capacity = capacity

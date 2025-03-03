@@ -1,4 +1,4 @@
-'''
+"""
 [
     [xQx]
     [xxx]
@@ -12,7 +12,9 @@
     [xxxQ]
 ]
 
-'''
+"""
+
+
 def printBoard(board):
     n = len(board)
 
@@ -21,6 +23,7 @@ def printBoard(board):
             print(board[i][j], end="")
         print()
     print()
+
 
 class Solution:
     def __setQueenPath(self, board, iPosition, jPosition):
@@ -61,8 +64,6 @@ class Solution:
 
         return True
 
-
-
     def totalNQueens(self, n: int) -> int:
         originalBoard = [["."] * n for _ in range(n)]
         numberOfQueens = 0
@@ -85,5 +86,5 @@ class Solution:
         if currQueens == n:
             "YES"
 
-solution = Solution().totalNQueens(3)
 
+solution = Solution().totalNQueens(3)

@@ -52,6 +52,7 @@ Constraints:
 """
 from typing import Optional
 
+
 class Node(object):
     def __init__(self, val=0, neighbors=None):
         self.val = val
@@ -84,9 +85,9 @@ class Solution(object):
                 continue
 
             originalVisited[originalNode] = newNode
-            newVisited[newNode.val] = newNode 
+            newVisited[newNode.val] = newNode
 
-            for neighbor in originalNode.neighbors:                
+            for neighbor in originalNode.neighbors:
 
                 if neighbor.val in newVisited:
                     newNeighbor = newVisited[neighbor.val]
