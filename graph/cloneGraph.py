@@ -1,5 +1,5 @@
 """
-This one is not accepted by Leetcode... But it should. New memory slots are used and for some reason it is not accepted
+Correct solution in copyGraph.py
 
 133. Clone Graph
 Medium
@@ -50,7 +50,7 @@ Constraints:
     There are no repeated edges and no self-loops in the graph.
     The Graph is connected and all nodes can be visited starting from the given node.
 """
-
+from typing import Optional
 
 class Node(object):
     def __init__(self, val=0, neighbors=None):
@@ -65,13 +65,48 @@ class Node(object):
 
 
 class Solution(object):
+    def cloneGraph(self, node: Optional[Node]) -> Node:
+        if not node:
+            return
+
+        newStartNode = Node(node.val)
+        originalVisited = dict()
+        newVisited = dict()
+
+        originalQueue = [node]
+        newQueue = [newStartNode]
+
+        while len(originalQueue):
+            originalNode = originalQueue.pop(0)
+            newNode = newQueue.pop(0)
+
+            if originalNode in originalVisited:
+                continue
+
+            originalVisited[originalNode] = newNode
+            newVisited[newNode.val] = newNode 
+
+            for neighbor in originalNode.neighbors:                
+
+                if neighbor.val in newVisited:
+                    newNeighbor = newVisited[neighbor.val]
+                else:
+                    newNeighbor = Node(neighbor.val)
+                    newVisited[newNeighbor.val] = newNeighbor
+
+                newNode.neighbors.append(newNeighbor)
+                newQueue.append(newNeighbor)
+                originalQueue.append(neighbor)
+
+        return newStartNode
+
     def __getNewNode(self, new_graph, curr_node):
         if curr_node.val in new_graph:
             return new_graph[curr_node.val]
         else:
             return Node(curr_node.val)
 
-    def cloneGraph(self, node):
+    def cloneGraphFails(self, node):
         if not node:
             return
 
@@ -125,7 +160,7 @@ class Solution(object):
                 start = new_node
 
             visited.add(curr_node_val)
-            new_graph[curr]
+            new_graph[curr_node.val] = curr_node
 
             for curr_neighbor in curr_node.neighbors:
                 # print(neighbor)
