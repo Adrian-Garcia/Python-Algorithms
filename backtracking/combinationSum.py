@@ -36,10 +36,46 @@ Constraints:
 """
 
 from typing import List
+import itertools
 
 
 class Solution:
-    def backtracking(
+    def getCombinationsThatSumTarget(
+        selff, nums, currCombination, target, result, currAddition, index
+    ):
+        if index >= len(nums):
+            return
+
+        newElement = nums[index]
+
+        if currAddition + newElement == target:
+            result.append(currCombination + [newElement])
+
+        newCurr = currCombination + [newElement]
+
+        selff.getCombinationsThatSumTarget(
+            nums, newCurr, target, result, currAddition + newElement, index + 1
+        )
+        selff.getCombinationsThatSumTarget(
+            nums, currCombination, target, result, currAddition, index + 1
+        )
+
+    def deleteDuplicatesFromResult(self, result):
+        for i in range(len(result)):
+            result[i] = sorted(result[i])
+
+        result.sort()
+        return list(result for result, _ in itertools.groupby(result))
+
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        if not nums:
+            return []
+
+        result = []
+        self.getCombinationsThatSumTarget(nums, [], target, result, 0, 0)
+        return self.deleteDuplicatesFromResult(result)
+
+    def backtrackingDoesNotWork(
         self,
         candidates: List[int],
         target: int,
@@ -68,7 +104,9 @@ class Solution:
             candidates, target, currSum, result, currCandidates, currIndex + 1
         )
 
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSumDoesNotWork(
+        self, candidates: List[int], target: int
+    ) -> List[List[int]]:
         result = []
         self.backtracking(
             candidates=candidates,
@@ -82,4 +120,4 @@ class Solution:
         return result
 
 
-print(Solution().combinationSum([2, 3, 6, 7], 7))
+print(Solution().combinationSum([10, 1, 2, 7, 6, 1, 5], 8))
