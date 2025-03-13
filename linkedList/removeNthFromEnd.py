@@ -38,19 +38,20 @@ class ListNode:
 
 class Solution:
 
-    '''
+    """
     counter = 0
     n = 2
-    
+
     p
          c
     t
     1 -> 2 -> 3 -> 4 -> None
-    '''
+    """
+
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if not head or not head.next:
             return None
-        
+
         counter = 0
         tail = head
 
@@ -76,6 +77,7 @@ class Solution:
             print(f"{curr.val} -> ", end="")
             curr = curr.next
         print("None")
+
 
 solution = Solution()
 
