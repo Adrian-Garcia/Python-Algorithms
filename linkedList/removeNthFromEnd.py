@@ -37,41 +37,42 @@ class ListNode:
 
 
 class Solution:
-
-    """
-    counter = 0
-    n = 2
-
-    p
-         c
-    t
-    1 -> 2 -> 3 -> 4 -> None
-    """
-
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        if not head or not head.next:
+        if not head:
+            return
+
+        size = 0
+        curr = head
+
+        while curr:
+            size += 1
+            curr = curr.next
+
+        prev = None
+        curr = head
+        position = size - (n % size) if size != n else 1
+        counter = 0
+
+        print("n            ", n)
+        print("size         ", size)
+        print("position     ", position)
+
+        if size <= 1:
             return None
 
-        counter = 0
-        tail = head
+        if position == 1:
+            head = head.next
+            return head
 
-        while counter <= n and tail != None:
-            tail = tail.next
+        while counter < position:
+            prev = curr
+            curr = curr.next
             counter += 1
 
-        # self.printList(tail)
-
-        prev = head
-
-        while tail != None:
-            tail = tail.next
-            prev = prev.next
-
         prev.next = prev.next.next
-
         return head
 
-    def printList(set, head: Optional[ListNode]) -> None:
+    def printList(self, head: Optional[ListNode]) -> None:
         curr = head
         while curr:
             print(f"{curr.val} -> ", end="")
@@ -90,6 +91,19 @@ node1.next = node2
 node2.next = node3
 node3.next = node4
 
+# solution.printList(node1)
+# res1 = solution.removeNthFromEnd(node1, 5)
+# solution.printList(res1)
+
+# node5 = ListNode(5)
+
+# solution.printList(node5)
+# res2 = solution.removeNthFromEnd(node5, 1)
+# solution.printList(res2)
+
+node1 = ListNode(1)
+node1.next = ListNode(2)
+
 solution.printList(node1)
-res1 = solution.removeNthFromEnd(node1, 3)
-solution.printList(res1)
+res3 = solution.removeNthFromEnd(node1, 2)
+solution.printList(res3)
