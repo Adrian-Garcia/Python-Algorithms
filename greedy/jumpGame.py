@@ -30,6 +30,7 @@ class Solution:
     def canJump(self, nums: List[int]) -> bool:
         queue = [0]
         visited = set()
+
         while queue:
             currPosition = queue.pop(0)
 
@@ -46,9 +47,9 @@ class Solution:
             minPos = min(currPosition, farestPosition)
             maxPos = max(currPosition, farestPosition)
 
-            jumpRange = list(range(minPos, maxPos + 1))
+            jumpRange = set(reversed(range(minPos, maxPos + 1))) - visited
 
-            queue += jumpRange
+            queue += list(jumpRange)
 
         return False
 
