@@ -1,5 +1,7 @@
 """
 Kth Largest Element in an Array
+https://neetcode.io/problems/kth-largest-element-in-an-array
+
 Given an unsorted array of integers nums and an integer k, return the kth largest element in the array.
 
 By kth largest element, we mean the kth largest element in the sorted order, not the kth distinct element.
@@ -21,6 +23,7 @@ Constraints:
 from typing import List
 import heapq
 
+
 class Solution:
 
     # Does not work for negative numbers
@@ -39,13 +42,13 @@ class Solution:
 
         nums = list(reversed(nums))
 
-        return nums[k-1]
+        return nums[k - 1]
 
     # Works but slow
     def findKthLargestHeapSolution(self, nums: List[int], k: int) -> int:
         if not nums:
             return 0
-        
+
         count = 1
 
         while count <= k:
@@ -54,14 +57,14 @@ class Solution:
             count += 1
 
         return response
-    
+
 
 solution = Solution()
 
-nums1 = [2,3,1,5,4]
+nums1 = [2, 3, 1, 5, 4]
 res1 = solution.findKthLargest(nums1, 2)
 print("res1", res1)
 
-nums2 = [2,3,1,1,5,5,4]
+nums2 = [2, 3, 1, 1, 5, 5, 4]
 res2 = solution.findKthLargest(nums2, 1)
 print("res1", res1)
