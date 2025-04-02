@@ -16,7 +16,7 @@ I demonstrated my capabilities by:
 
 2. Successfully delivering the previous project and being asked to move to a new team with a more challenging project. I took on the role of maintaining the project, paying off technical debt, and enhancing it with new features.
 
-I worked diligently to manage and maintain both projects, often taking on long hours of reading code, documentation, attending meetings, and coding. I made no decisions that could negatively affect the success of the project, and I'm proud of my achievements."
+I worked diligently to manage and maintain both projects, often taking on long hours of reading code, documentation, attending meetings, and coding. I made no decisions that could negatively affect the success of the project, and I'm proud of my achievements.
 
 *Result*
 As a result of my efforts, I successfully transitioned into a Senior Engineer role, which is a rare achievement in my company. I've demonstrated my ability to take on challenging projects and lead teams to success, which has given me a sense of pride and accomplishment.
@@ -33,12 +33,43 @@ I see myself being leader of my own project
 ## Interesting Projects (STAR)
 Consider projects you’ve undertaken - especially the largest, most difficult, most successful, least successful, etc. Write descriptions of these.
 
-MCI Frankenstein project
+*Situation*
+I recently took on a project with significant technical debt, which is a result of multiple teams working on it before us. The project's architecture, code, structure, documentation, and tools are in disarray, making it a challenging and difficult project to work on.
+
+*Task*
+My task was to pay off the technical debt and make the project more maintainable. This involved identifying and fixing bugs, investigating weird behaviors, and understanding every detail of the platform.
+
+*Action*
+I took on the responsibility of solving bugs and investigating weird behaviors, which required me to learn every detail of the platform. I had to perform tasks that the team often didn't want to do, such as:
+
+- Identifying redundancies and areas of opportunity
+- Detecting dependencies that can be deleted
+- Identifying unused code
+- Understanding the project's architecture and structure
+- By doing these tasks, I gained a deeper understanding of the project's inner workings and was able to identify areas for improvement.
+
+*Result*
+As a result of my efforts, I have a better understanding of the project's strengths and weaknesses, and I'm able to make informed decisions about what to add, what to delete, and how to improve the platform. I've also developed a unique perspective on the project, which allows me to identify opportunities for growth and improvement.
 
 ## Taking Initiative (STAR)
 Write about how you’ve taken the initiative on teams you’ve been a part of. Where have you gone beyond what was expected?
 
-Delete TRT
+*Situation*
+In a team on  my current company, we had to do som tasks that required converting large files to compressed files like zip, gzip, and rar. I needed to compress a large file to gzip, but the free software I downloaded wasn't able to do it for free.
+
+*Task*
+My task was to find a way to compress the file to gzip without paying for the software. I decided to take the initiative and use Python's library to create a script that could do the job.
+
+*Action*
+I took the initiative to:
+- Research and create a script using Python's library to compress files to gzip
+- Modify the script to automate the process of downloading, formatting, and reuploading files
+- Share the script with my peers, who were interested in learning how to compress files to gzip
+- Continuously improve the script by adding more functionalities, such as compression to zip and rar
+- By taking the initiative, I was able to create a solution that not only saved the company money but also improved the team's efficiency and productivity.
+
+*Result*
+As a result of my initiative, the team was able to stop using the paid software and instead use my script to compress files to gzip. The script was so successful that other teams forked it and added more functionalities, making it a company-wide solution. The payed software is no longer used in most teams, and I was able to achieve this with minimal effort and cost.
 
 ## Work Relationships (STAR)
 Write about the managers and coworkers who’ve impacted you the most. Consider also the most difficult work relationships you’ve encountered.
