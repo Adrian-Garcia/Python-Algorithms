@@ -10,6 +10,9 @@
         - Storage
         - Limitations
         - Money
+    3. Consider edge cases only if really needed
+        - What if someone adds a large ammount of data? Should we cover that?
+        - Should we consider SQL injection?
 
 2. Database Models
     1. Talk on tradeofs of non relational vs relational databases
@@ -20,7 +23,6 @@
     2. If big requests at the same time are made, consider using a load balancer
     3. Consider partitioning servers for certain functionalities like read/write, fetch content, process data, etc. If certain feature is taking more than another, consider having a dedicated server for doing that specific thing
     
-
 4. Create api methods.
     - Here are some examples:
         - `makePost(userId: int, mediaMetadata: List[Media], caption: String, ...)`
