@@ -1,8 +1,8 @@
 # Questions to do after interview is over
 
-Ordered by prioiry
+Ordered by priority
 
-1. The current economic state is uncertain. What is the company doing to stay healthy?
+1. The current economic and political state is uncertain. What is the company doing to stay healthy culturaly, economically, technically?
 2. How do you see yourself in 5 years?
 3. Why is this possition open? is it because the company is growing or is it because people have left the company?
 4. What happens when a solution to a problem is feasible technically or economically but an issue ethically? How are these situations driven?
