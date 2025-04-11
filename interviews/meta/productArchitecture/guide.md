@@ -4,7 +4,7 @@
 1. Assumptions and questions
     1. Ask about main features that need to be covered
     2. Ask about non functional requirements 
-        - Number of toal users
+        - Number of total users
         - Users using the app at the same size 
         - How are users growing? Are they already active or do they grow over time?
         - Storage
@@ -20,6 +20,8 @@
 
 3. Diagrams of the platform workflow
     1. Start drawing clients (web, mobile, desktop, etc)
+        - Web client have almost no limitations on storage and computation
+        - Phone client have data limitations. We dont want to waste users data. And we must consider that phones might have slowers speeds because wifi tends to be faster 
     2. If big requests at the same time are made, consider using a load balancer
     3. Consider partitioning servers for certain functionalities like read/write, fetch content, process data, etc. If certain feature is taking more than another, consider having a dedicated server for doing that specific thing
     
@@ -36,6 +38,7 @@
         - Not store media at max resolution, cap it to a maximum
         - Compress files that are not used after x ammount of time
         - Use asyncronous functions to process data while user is doing something else
+        - Use pagination to not fetch all information at once, only what is needed/requested
 
 6. Describe key functionalities 
     - Main functionalities need to be highly described
