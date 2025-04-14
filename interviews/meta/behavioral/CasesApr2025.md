@@ -1,6 +1,16 @@
 # Behavioral Practice Cases
 
+## CheatSheet:
+- [Career Transitions](#career-transitions-star): SWE II to Senior
+- [Growth at Facebook](#growth-at-facebook): Posibility to grow in the company (compared as in HERE)
+- [Interesting Projects](#interesting-projects-star): MCI technical debt but high impact
+- [Taking Initiative](#taking-initiative-star): Gzip compressor
+- [Work Relationships](#work-relationships-star): Peers at war
+- [Team Roles](#team-roles-star): I was principal engineer in Clipper
+
 ## Career Transitions (STAR)
+[CheatSheet](#cheatsheet)
+
 Think about the career transitions you’ve made so far. Write about recent ones: what motivated them, what you felt like went well, and what could have gone better.
 
 *Situation*
@@ -26,11 +36,15 @@ As a result of my efforts, I successfully transitioned into a Senior Engineer ro
 *What you learned:* Through this experience, I've learned the importance of perseverance and hard work in achieving my goals. I've also learned to appreciate the value of taking on new challenges and stepping out of my comfort zone
 
 ## Growth at Facebook
+[CheatSheet](#cheatsheet)
+
 Write about what working at Facebook would help you become in the coming years.
 
 I see myself being leader of my own project
 
 ## Interesting Projects (STAR)
+[CheatSheet](#cheatsheet)
+
 Consider projects you’ve undertaken - especially the largest, most difficult, most successful, least successful, etc. Write descriptions of these.
 
 *Situation*
@@ -52,10 +66,12 @@ I took on the responsibility of solving bugs and investigating weird behaviors, 
 As a result of my efforts, I have a better understanding of the project's strengths and weaknesses, and I'm able to make informed decisions about what to add, what to delete, and how to improve the platform. I've also developed a unique perspective on the project, which allows me to identify opportunities for growth and improvement.
 
 ## Taking Initiative (STAR)
+[CheatSheet](#cheatsheet)
+
 Write about how you’ve taken the initiative on teams you’ve been a part of. Where have you gone beyond what was expected?
 
 *Situation*
-In a team on  my current company, we had to do som tasks that required converting large files to compressed files like zip, gzip, and rar. I needed to compress a large file to gzip, but the free software I downloaded wasn't able to do it for free.
+In a team on  my current company, we had to do some tasks that required converting large files to compressed files like zip, gzip, and rar. I needed to compress a large file to gzip, but the free software I downloaded wasn't able to do it for free.
 
 *Task*
 My task was to find a way to compress the file to gzip without paying for the software. I decided to take the initiative and use Python's library to create a script that could do the job.
@@ -72,6 +88,8 @@ I took the initiative to:
 As a result of my initiative, the team was able to stop using the paid software and instead use my script to compress files to gzip. The script was so successful that other teams forked it and added more functionalities, making it a company-wide solution. The payed software is no longer used in most teams, and I was able to achieve this with minimal effort and cost.
 
 ## Work Relationships (STAR)
+[CheatSheet](#cheatsheet)
+
 Write about the managers and coworkers who’ve impacted you the most. Consider also the most difficult work relationships you’ve encountered.
 
 *Situation*
@@ -86,7 +104,9 @@ I decided to take the initiative and solve problems on my own. I wrote documenta
 *Result*
 Through my efforts, I established a positive working relationship with my peers, despite the initial challenges. While communication issues still arise due to their situations and time zones, we've developed a strong foundation for collaboration and mutual support.
 
-## Team Roles(STAR)
+## Team Roles (STAR)
+[CheatSheet](#cheatsheet)
+
 Write about what roles you’ve played on recent teams you’ve been a part of. How did you end up playing those roles? What has worked out well and what hasn’t been the best fit?
 
 *Situation*
