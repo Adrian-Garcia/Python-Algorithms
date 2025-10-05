@@ -20,11 +20,12 @@ Constraints:
     All the integers of nums are unique.
 """
 
+
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
         if len(nums) == 0:
             return [[]]
-        
+
         permutations = self.permute(nums[1:])
         res = []
 
@@ -36,9 +37,9 @@ class Solution:
 
         return res
 
-        
+
 solution = Solution()
 
-nums1 = [1,2,3]
+nums1 = [1, 2, 3]
 res1 = solution.permute(nums1)
 print("res1", res1)

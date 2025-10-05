@@ -30,7 +30,7 @@ class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
         if len(nums) == 0:
             return [[]]
-        
+
         permutations = self.permute(nums[1:])
         res = []
 
@@ -41,6 +41,7 @@ class Solution:
                 res.append(permutation_copy)
 
         return res
+
 
 nums = [1, 2, 3]
 print("result", Solution().permute(nums))

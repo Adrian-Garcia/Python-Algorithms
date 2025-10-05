@@ -20,7 +20,7 @@ Example 3:
 
 class Solution(object):
     def myPow(self, x, n):
-        return x ** n
+        return x**n
 
 
 sol = Solution()
