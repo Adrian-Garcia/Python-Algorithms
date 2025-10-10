@@ -1,6 +1,6 @@
 """
 120. Triangle
-https://leetcode.com/problems/triangle/solutions/7221419/recursive-dp-vs-iterative-dp-with-o-1-space-beats-100/
+https://leetcode.com/problems/triangle/solutions/
 
 Given a triangle array, return the minimum path sum from top to bottom.
 
@@ -58,13 +58,12 @@ class Solution:
         self.__checkMinPath(triangle, 0, 0, 0, result)
         return result[0]
 
-    def minimumTotal(self, triangle: list[list[int]]) -> int:
+    def minimumTotalIterative(self, triangle: list[list[int]]) -> int:
         result = 10000000000000
         positions = [[0, 0, 0]]
 
         while len(positions):
             level, position, prev_sum = positions.pop()
-
             curr_sum = prev_sum + triangle[level][position]
 
             if level == len(triangle) - 1:
@@ -75,6 +74,25 @@ class Solution:
                 positions.append([level + 1, position + 1, curr_sum])
 
         return result
+
+    # Accepted usin dynamic programming
+    def minimumTotal(self, triangle: list[list[int]]) -> int:
+        if not triangle:
+            return 0
+
+        level = len(triangle) - 1
+
+        while level >= 0:
+
+            for i in range(len(triangle[level]) - 1):
+                left = triangle[level][i]
+                right = triangle[level][i + 1]
+
+                triangle[level - 1][i] += min(left, right)
+
+            level -= 1
+
+        return triangle[0][0]
 
 
 solution = Solution()
