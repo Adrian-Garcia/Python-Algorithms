@@ -28,7 +28,6 @@ primes[1] = list(2,3,5,7,9)
 primes[2] = list(2,3,5,7)
                        x
 primes[3] = list(2,3,5,7)
-
 """
 
 
