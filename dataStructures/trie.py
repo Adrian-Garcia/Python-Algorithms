@@ -1,111 +1,95 @@
+"""208. Implement Trie (Prefix Tree)
+https://leetcode.com/problems/implement-trie-prefix-tree/description/
+
+A trie (pronounced as "try") or prefix tree is a tree data structure used to
+efficiently store and retrieve keys in a dataset of strings. There are various
+applications of this data structure, such as autocomplete and spellchecker.
+
+Implement the Trie class:
+
+Trie() Initializes the trie object.
+void insert(String word) Inserts the string word into the trie.
+boolean search(String word) Returns true if the string word is in the trie
+(i.e., was inserted before), and false otherwise.
+
+boolean startsWith(String prefix) Returns true if there is a previously
+inserted string word that has the prefix prefix, and false otherwise.
+ 
+
+Example 1:
+    Input
+        ["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+        [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+
+    Output
+        [null, null, true, false, true, null, true]
+
+    Explanation
+        Trie trie = new Trie();
+        trie.insert("apple");
+        trie.search("apple");   // return True
+        trie.search("app");     // return False
+        trie.startsWith("app"); // return True
+        trie.insert("app");
+        trie.search("app");     // return True
+
+Constraints:
+    - 1 <= word.length, prefix.length <= 2000
+    - word and prefix consist only of lowercase English letters.
+    - At most 3 * 104 calls in total will be made to insert, search,
+      and startsWith.
+
 """
-Does not work
-
-Hello
-Hero
-
-Fer
-Feel
-
-{
-    h -> {
-        e -> {
-            r -> {
-                o -> {}
-            } 
-            l -> {
-                l -> {
-                    o -> {}
-                }
-            }
-        }
-    }
-    f -> {
-        e ->
-            r -> {}
-            e -> {
-                l -> {}
-            }   
-    }
-}
-
-"""
+from typing import Optional
 
 
 class TrieNode:
-    def __init__(self, char, endOfWord=False, trieNodes=dict()):
-        self.char = char
-        self.endOfWord = endOfWord
-        self.trieNodes = trieNodes
+    def __init__(self, letter: Optional[str] = None, endWord: bool = False):
+        self.letter = letter
+        self.endWord = endWord
+        self.nextLetters = dict()
 
 
 class Trie:
-    def __init__(self) -> None:
-        self.words = dict()
+    def __getLastLetter(self, word: str) -> Optional[TrieNode]:
+        if word == "":
+            return True
+
+        currDict = self.nextLetters
+
+        for letter in word:
+            if letter not in currDict:
+                return None
+
+            currLetter = currDict[letter]
+            currDict = currDict[letter].nextLetters
+
+        return currLetter
+
+    def __init__(self):
+        self.nextLetters = dict()
 
     def insert(self, word: str) -> None:
-        word = word.lower()
-        currTrieNode = None
-        currTrieDict = self.words
+        if word == "":
+            return
 
-        for i in range(len(word)):
-            currChar = word[i]
+        currDict = self.nextLetters
 
-            print("Pre--------------------------")
-            print(" i                       ", i)
-            print(" currChar                ", currChar)
-            print(" currTrieNode            ", currTrieNode)
-            print(" currTrieDict            ", currTrieDict)
-
-            if currChar in currTrieDict:
-                currTrieNode = currTrieDict[currChar]
-
+        for letter in word:
+            if letter not in currDict:
+                currLetter = TrieNode(letter)
+                currDict[letter] = currLetter
             else:
-                newTrieNode = TrieNode(currChar)
-                currTrieDict[currChar] = newTrieNode
-                currTrieNode = newTrieNode
+                currLetter = currDict[letter]
 
-            print("Post--------------------------")
-            print(" i                       ", i)
-            print(" currChar                ", currChar)
-            print(" currTrieDict            ", currTrieDict)
-            print(" currTrieNode            ", currTrieNode)
-            print(" currTrieNode.char       ", currTrieNode.char)
-            print(" currTrieNode.trieNodes  ", currTrieNode.trieNodes)
-            print()
-            print()
-            print()
+            currDict = currDict[letter].nextLetters
 
-            currTrieDict = currTrieNode.trieNodes
-
-            if i == len(word) - 1:
-                currTrieNode.endOfWord = True
+        currLetter.endWord = True
 
     def search(self, word: str) -> bool:
-        word = word.lower()
-        currTrieNode = self.words
+        lastLetter = self.__getLastLetter(word)
+        return True if lastLetter and lastLetter.endWord else False
 
-        for i in range(len(word)):
-            currChar = word[i]
-            if currChar not in currTrieNode:
-                return False
-
-            if i == len(word) - 1 and currTrieNode[currChar].endOfWord:
-                return True
-
-            currTrieNode = currTrieNode[currChar].trieNodes
-
-        return False
-
-
-trie = Trie()
-trie.insert("fer")
-"""
-trie.insert("hello")
-print(trie.search("fer"))
-print(trie.search("hello"))
-print(trie.search("hell"))
-print(trie.search("hero"))
-trie.insert("hero")
-print(trie.search("hero"))
-"""
+    def startsWith(self, prefix: str) -> bool:
+        lastLetter = self.__getLastLetter(prefix)
+        return True if lastLetter else False

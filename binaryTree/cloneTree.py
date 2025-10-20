@@ -1,4 +1,4 @@
-'''Clone a Binary Tree
+"""Clone a Binary Tree
 Given a binary tree, return a copy of it.
 
 Input:
@@ -6,7 +6,8 @@ Input:
 
 Output:
     Root of the copied binary tree
-'''
+"""
+
 
 class Node:
     def __init__(self, info):
@@ -14,7 +15,8 @@ class Node:
         self.left = None
         self.right = None
 
-class Solution():
+
+class Solution:
     def preOrder(root):
         if root:
             print(root.info, end=" ")
@@ -42,7 +44,7 @@ class Solution():
 
         if curr.right:
             copyNode.right = Node(curr.right.info)
-        
+
         self.__preOrderCopy(curr.left, copyNode.left)
         self.__preOrderCopy(curr.right, copyNode.right)
 

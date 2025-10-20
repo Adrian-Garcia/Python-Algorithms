@@ -1,8 +1,6 @@
-"""46. Permutations (Does not work)
-https://leetcode.com/problems/permutations/description/
-
-Given an array nums of distinct integers, return all the possible permutations.
-You can return the answer in any order.
+"""
+46. Permutations
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
 
 Example 1:
     Input: nums = [1,2,3]
@@ -16,14 +14,11 @@ Example 3:
     Input: nums = [1]
     Output: [[1]]
  
-
 Constraints:
     1 <= nums.length <= 6
     -10 <= nums[i] <= 10
     All the integers of nums are unique.
 """
-
-from typing import List
 
 
 class Solution:
@@ -43,5 +38,8 @@ class Solution:
         return res
 
 
-nums = [1, 2, 3]
-print("result", Solution().permute(nums))
+solution = Solution()
+
+nums1 = [1, 2, 3]
+res1 = solution.permute(nums1)
+print("res1", res1)
