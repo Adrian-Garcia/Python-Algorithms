@@ -4,7 +4,6 @@
 - What do you like best at this company?
 - What do you expect from my first 90 days?
 
-
 -------------------------------------------------------------------------------------------------------
 
 ## SOLID
@@ -19,7 +18,7 @@ Objects should be open for extension but closed for modification
 Objects of child clases should behave as objects from the parent class
 
 ### Interface segregation principle
-Reduce the side effects and requency of required changes by splitting the code into multiple/independent parts.
+Reduce the side effects and frequency of required changes by splitting the code into multiple/independent parts.
 Is better to have multiple interfaces that do something that on general interface
 
 ### Dependency Inversion Principle
